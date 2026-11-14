@@ -1,0 +1,13 @@
+node_modules/
+.venv/
+__pycache__/
+
+# generated render assets
+src/fonts.css
+src/data/timeline.js
+data/bed.wav
+out/audio_master.wav
+out/video_silent.mp4
+out/stills/
+out/frames/
+out/*.log
