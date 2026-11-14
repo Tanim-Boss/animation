@@ -1,0 +1,1553 @@
+{
+ "audio": "Generated Audio November 13, 2026 - 7_35PM.wav",
+ "audioDuration": 79.2,
+ "model": "whisper-small (ct2 int8) cross-attention DTW via stable-ts, global pass + per-island pass, pause edges taken from the waveform",
+ "islands": [
+  [
+   0.185,
+   2.805
+  ],
+  [
+   3.055,
+   4.745
+  ],
+  [
+   5.095,
+   5.575
+  ],
+  [
+   5.845,
+   8.355
+  ],
+  [
+   8.585,
+   12.225
+  ],
+  [
+   12.865,
+   13.685
+  ],
+  [
+   13.875,
+   16.495
+  ],
+  [
+   16.965,
+   18.125
+  ],
+  [
+   18.305,
+   20.805
+  ],
+  [
+   21.025,
+   22.405
+  ],
+  [
+   22.995,
+   23.635
+  ],
+  [
+   23.855,
+   25.295
+  ],
+  [
+   25.605,
+   26.655
+  ],
+  [
+   27.375,
+   30.305
+  ],
+  [
+   30.615,
+   32.285
+  ],
+  [
+   32.725,
+   34.865
+  ],
+  [
+   35.165,
+   37.315
+  ],
+  [
+   38.065,
+   41.685
+  ],
+  [
+   41.935,
+   43.995
+  ],
+  [
+   44.185,
+   47.365
+  ],
+  [
+   47.665,
+   48.355
+  ],
+  [
+   48.855,
+   50.895
+  ],
+  [
+   51.255,
+   52.585
+  ],
+  [
+   52.905,
+   54.465
+  ],
+  [
+   54.845,
+   56.495
+  ],
+  [
+   56.755,
+   60.085
+  ],
+  [
+   61.095,
+   62.195
+  ],
+  [
+   62.585,
+   64.185
+  ],
+  [
+   64.535,
+   65.155
+  ],
+  [
+   65.375,
+   68.065
+  ],
+  [
+   69.035,
+   70.655
+  ],
+  [
+   71.015,
+   74.195
+  ],
+  [
+   74.735,
+   76.585
+  ],
+  [
+   77.035,
+   77.745
+  ],
+  [
+   78.205,
+   78.805
+  ]
+ ],
+ "words": [
+  {
+   "cue": 1,
+   "t": "আসসালামু",
+   "roman": "Assalamu",
+   "start": 0.185,
+   "end": 1.005,
+   "island": 0,
+   "spread": 0.0
+  },
+  {
+   "cue": 1,
+   "t": "আলাইকুম",
+   "roman": "Alaikum",
+   "start": 1.005,
+   "end": 1.425,
+   "island": 0,
+   "spread": 0.0
+  },
+  {
+   "cue": 1,
+   "t": "প্রিয়",
+   "roman": "priyo",
+   "start": 1.425,
+   "end": 1.885,
+   "island": 0,
+   "spread": 0.02
+  },
+  {
+   "cue": 1,
+   "t": "শিক্ষার্থীরা!",
+   "roman": "shikkharthira!",
+   "start": 1.885,
+   "end": 2.805,
+   "island": 0,
+   "spread": 0.0
+  },
+  {
+   "cue": 2,
+   "t": "আমি",
+   "roman": "Ami",
+   "start": 3.055,
+   "end": 3.535,
+   "island": 1,
+   "spread": 0.0
+  },
+  {
+   "cue": 2,
+   "t": "মোহাম্মাদ",
+   "roman": "Mohammad",
+   "start": 3.535,
+   "end": 3.935,
+   "island": 1,
+   "spread": 0.0
+  },
+  {
+   "cue": 2,
+   "t": "ফয়সাল।",
+   "roman": "Faisal.",
+   "start": 3.935,
+   "end": 4.745,
+   "island": 1,
+   "spread": 0.0
+  },
+  {
+   "cue": 3,
+   "t": "আজ",
+   "roman": "Aj",
+   "start": 5.095,
+   "end": 5.575,
+   "island": 2,
+   "spread": 0.0
+  },
+  {
+   "cue": 3,
+   "t": "এসএসসি",
+   "roman": "SSC",
+   "start": 5.845,
+   "end": 6.465,
+   "island": 3,
+   "spread": 0.0
+  },
+  {
+   "cue": 3,
+   "t": "ও",
+   "roman": "o",
+   "start": 6.465,
+   "end": 6.685,
+   "island": 3,
+   "spread": 0.02
+  },
+  {
+   "cue": 3,
+   "t": "দাখিল",
+   "roman": "Dakhil",
+   "start": 6.685,
+   "end": 7.205,
+   "island": 3,
+   "spread": 0.0
+  },
+  {
+   "cue": 3,
+   "t": "শিক্ষার্থীদের",
+   "roman": "shikkharthider",
+   "start": 7.205,
+   "end": 7.825,
+   "island": 3,
+   "spread": 0.0
+  },
+  {
+   "cue": 3,
+   "t": "জন্য",
+   "roman": "jonno",
+   "start": 7.825,
+   "end": 8.355,
+   "island": 3,
+   "spread": 0.02
+  },
+  {
+   "cue": 4,
+   "t": "আমাদের",
+   "roman": "amader",
+   "start": 8.585,
+   "end": 8.845,
+   "island": 4,
+   "spread": 0.0
+  },
+  {
+   "cue": 4,
+   "t": "বেসিক",
+   "roman": "basic",
+   "start": 8.845,
+   "end": 9.365,
+   "island": 4,
+   "spread": 0.0
+  },
+  {
+   "cue": 4,
+   "t": "টু",
+   "roman": "to",
+   "start": 9.365,
+   "end": 9.665,
+   "island": 4,
+   "spread": 0.0
+  },
+  {
+   "cue": 4,
+   "t": "অ্যাডভান্স",
+   "roman": "advance",
+   "start": 9.665,
+   "end": 10.165,
+   "island": 4,
+   "spread": 0.0
+  },
+  {
+   "cue": 4,
+   "t": "গণিত",
+   "roman": "gonit",
+   "start": 10.165,
+   "end": 10.835,
+   "island": 4,
+   "spread": 0.0
+  },
+  {
+   "cue": 4,
+   "t": "কোর্সের",
+   "roman": "courser",
+   "start": 10.915,
+   "end": 11.225,
+   "island": 4,
+   "spread": 0.02
+  },
+  {
+   "cue": 4,
+   "t": "আপডেট",
+   "roman": "update",
+   "start": 11.225,
+   "end": 11.555,
+   "island": 4,
+   "spread": 0.0
+  },
+  {
+   "cue": 4,
+   "t": "জানাব।",
+   "roman": "janabo.",
+   "start": 11.665,
+   "end": 12.225,
+   "island": 4,
+   "spread": 0.0
+  },
+  {
+   "cue": 5,
+   "t": "এ",
+   "roman": "E",
+   "start": 12.865,
+   "end": 12.985,
+   "island": 5,
+   "spread": 0.0
+  },
+  {
+   "cue": 5,
+   "t": "পর্যন্ত",
+   "roman": "porjonto",
+   "start": 12.985,
+   "end": 13.685,
+   "island": 5,
+   "spread": 0.0
+  },
+  {
+   "cue": 5,
+   "t": "১০০+",
+   "roman": "ekshoplus",
+   "start": 13.875,
+   "end": 14.695,
+   "island": 6,
+   "spread": 0.0
+  },
+  {
+   "cue": 5,
+   "t": "শিক্ষার্থী",
+   "roman": "shikkharthi",
+   "start": 14.695,
+   "end": 15.395,
+   "island": 6,
+   "spread": 0.0
+  },
+  {
+   "cue": 5,
+   "t": "কোর্সে",
+   "roman": "course",
+   "start": 15.395,
+   "end": 15.675,
+   "island": 6,
+   "spread": 0.0
+  },
+  {
+   "cue": 5,
+   "t": "এনরোল",
+   "roman": "enroll",
+   "start": 15.675,
+   "end": 16.055,
+   "island": 6,
+   "spread": 0.0
+  },
+  {
+   "cue": 5,
+   "t": "করেছে,",
+   "roman": "koreche,",
+   "start": 16.055,
+   "end": 16.495,
+   "island": 6,
+   "spread": 0.04
+  },
+  {
+   "cue": 6,
+   "t": "১০টি",
+   "roman": "doshti",
+   "start": 16.965,
+   "end": 17.325,
+   "island": 7,
+   "spread": 0.0
+  },
+  {
+   "cue": 6,
+   "t": "ক্লাস",
+   "roman": "class",
+   "start": 17.325,
+   "end": 17.485,
+   "island": 7,
+   "spread": 0.02
+  },
+  {
+   "cue": 6,
+   "t": "শেষ",
+   "roman": "shesh",
+   "start": 17.485,
+   "end": 17.805,
+   "island": 7,
+   "spread": 0.0
+  },
+  {
+   "cue": 6,
+   "t": "হয়েছে।",
+   "roman": "hoyeche.",
+   "start": 17.805,
+   "end": 18.125,
+   "island": 7,
+   "spread": 0.04
+  },
+  {
+   "cue": 7,
+   "t": "মোট",
+   "roman": "Mot",
+   "start": 18.305,
+   "end": 18.685,
+   "island": 8,
+   "spread": 0.0
+  },
+  {
+   "cue": 7,
+   "t": "১৭টি",
+   "roman": "shotoroti",
+   "start": 18.685,
+   "end": 19.645,
+   "island": 8,
+   "spread": 0.02
+  },
+  {
+   "cue": 7,
+   "t": "চ্যাপ্টারের",
+   "roman": "chapterer",
+   "start": 19.645,
+   "end": 20.245,
+   "island": 8,
+   "spread": 0.02
+  },
+  {
+   "cue": 7,
+   "t": "মধ্যে",
+   "roman": "moddhe",
+   "start": 20.245,
+   "end": 20.805,
+   "island": 8,
+   "spread": 0.02
+  },
+  {
+   "cue": 7,
+   "t": "৪টি",
+   "roman": "charti",
+   "start": 21.025,
+   "end": 21.465,
+   "island": 9,
+   "spread": 0.0
+  },
+  {
+   "cue": 7,
+   "t": "আমরা",
+   "roman": "amra",
+   "start": 21.465,
+   "end": 21.765,
+   "island": 9,
+   "spread": 0.02
+  },
+  {
+   "cue": 7,
+   "t": "শেষ",
+   "roman": "shesh",
+   "start": 21.765,
+   "end": 22.005,
+   "island": 9,
+   "spread": 0.0
+  },
+  {
+   "cue": 7,
+   "t": "করেছি।",
+   "roman": "korechi.",
+   "start": 22.005,
+   "end": 22.405,
+   "island": 9,
+   "spread": 0.0
+  },
+  {
+   "cue": 8,
+   "t": "পরের",
+   "roman": "Porer",
+   "start": 22.995,
+   "end": 23.235,
+   "island": 10,
+   "spread": 0.0
+  },
+  {
+   "cue": 8,
+   "t": "চ্যাপ্টার",
+   "roman": "chapter",
+   "start": 23.235,
+   "end": 23.635,
+   "island": 10,
+   "spread": 0.02
+  },
+  {
+   "cue": 8,
+   "t": "দূরত্ব",
+   "roman": "durotto",
+   "start": 23.855,
+   "end": 24.395,
+   "island": 11,
+   "spread": 0.0
+  },
+  {
+   "cue": 8,
+   "t": "ও",
+   "roman": "o",
+   "start": 24.395,
+   "end": 24.685,
+   "island": 11,
+   "spread": 0.02
+  },
+  {
+   "cue": 8,
+   "t": "উচ্চতা,",
+   "roman": "uchchota,",
+   "start": 24.785,
+   "end": 25.295,
+   "island": 11,
+   "spread": 0.0
+  },
+  {
+   "cue": 8,
+   "t": "অধ্যায়-১০।",
+   "roman": "oddhaydosh.",
+   "start": 25.605,
+   "end": 26.655,
+   "island": 12,
+   "spread": 0.0
+  },
+  {
+   "cue": 9,
+   "t": "এই",
+   "roman": "Ei",
+   "start": 27.375,
+   "end": 27.555,
+   "island": 13,
+   "spread": 0.0
+  },
+  {
+   "cue": 9,
+   "t": "কোর্সে",
+   "roman": "course",
+   "start": 27.555,
+   "end": 27.815,
+   "island": 13,
+   "spread": 0.02
+  },
+  {
+   "cue": 9,
+   "t": "সম্পূর্ণ",
+   "roman": "shompurno",
+   "start": 27.815,
+   "end": 28.995,
+   "island": 13,
+   "spread": 0.04
+  },
+  {
+   "cue": 9,
+   "t": "সাধারণ",
+   "roman": "shadharon",
+   "start": 28.995,
+   "end": 29.595,
+   "island": 13,
+   "spread": 0.0
+  },
+  {
+   "cue": 9,
+   "t": "গণিত",
+   "roman": "gonit",
+   "start": 29.595,
+   "end": 29.955,
+   "island": 13,
+   "spread": 0.02
+  },
+  {
+   "cue": 9,
+   "t": "বই",
+   "roman": "boi",
+   "start": 29.955,
+   "end": 30.305,
+   "island": 13,
+   "spread": 0.0
+  },
+  {
+   "cue": 10,
+   "t": "এ",
+   "roman": "A",
+   "start": 30.615,
+   "end": 30.815,
+   "island": 14,
+   "spread": 0.0
+  },
+  {
+   "cue": 10,
+   "t": "টু",
+   "roman": "to",
+   "start": 30.815,
+   "end": 31.095,
+   "island": 14,
+   "spread": 0.0
+  },
+  {
+   "cue": 10,
+   "t": "জেড",
+   "roman": "Z",
+   "start": 31.095,
+   "end": 31.415,
+   "island": 14,
+   "spread": 0.02
+  },
+  {
+   "cue": 10,
+   "t": "শেষ",
+   "roman": "shesh",
+   "start": 31.415,
+   "end": 31.715,
+   "island": 14,
+   "spread": 0.02
+  },
+  {
+   "cue": 10,
+   "t": "করানো",
+   "roman": "korano",
+   "start": 31.715,
+   "end": 32.075,
+   "island": 14,
+   "spread": 0.0
+  },
+  {
+   "cue": 10,
+   "t": "হবে।",
+   "roman": "hobe.",
+   "start": 32.075,
+   "end": 32.285,
+   "island": 14,
+   "spread": 0.02
+  },
+  {
+   "cue": 11,
+   "t": "সাথে",
+   "roman": "Shathe",
+   "start": 32.725,
+   "end": 33.025,
+   "island": 15,
+   "spread": 0.0
+  },
+  {
+   "cue": 11,
+   "t": "থাকছে",
+   "roman": "thakche",
+   "start": 33.025,
+   "end": 33.285,
+   "island": 15,
+   "spread": 0.0
+  },
+  {
+   "cue": 11,
+   "t": "প্রতিটি",
+   "roman": "protiti",
+   "start": 33.285,
+   "end": 33.865,
+   "island": 15,
+   "spread": 0.02
+  },
+  {
+   "cue": 11,
+   "t": "চ্যাপ্টারের",
+   "roman": "chapterer",
+   "start": 33.865,
+   "end": 34.445,
+   "island": 15,
+   "spread": 0.0
+  },
+  {
+   "cue": 11,
+   "t": "নোট,",
+   "roman": "note,",
+   "start": 34.445,
+   "end": 34.865,
+   "island": 15,
+   "spread": 0.0
+  },
+  {
+   "cue": 12,
+   "t": "নিয়মিত",
+   "roman": "niyomito",
+   "start": 35.165,
+   "end": 35.605,
+   "island": 16,
+   "spread": 0.0
+  },
+  {
+   "cue": 12,
+   "t": "কুইজ",
+   "roman": "quiz",
+   "start": 35.605,
+   "end": 35.865,
+   "island": 16,
+   "spread": 0.0
+  },
+  {
+   "cue": 12,
+   "t": "আর",
+   "roman": "ar",
+   "start": 35.865,
+   "end": 36.385,
+   "island": 16,
+   "spread": 0.02
+  },
+  {
+   "cue": 12,
+   "t": "অ্যাসাইনমেন্ট।",
+   "roman": "assignment.",
+   "start": 36.385,
+   "end": 37.315,
+   "island": 16,
+   "spread": 0.04
+  },
+  {
+   "cue": 13,
+   "t": "গাইডলাইন",
+   "roman": "Guideline",
+   "start": 38.065,
+   "end": 38.485,
+   "island": 17,
+   "spread": 0.0
+  },
+  {
+   "cue": 13,
+   "t": "মেনে",
+   "roman": "mene",
+   "start": 38.485,
+   "end": 38.725,
+   "island": 17,
+   "spread": 0.0
+  },
+  {
+   "cue": 13,
+   "t": "ক্লাস",
+   "roman": "class",
+   "start": 38.725,
+   "end": 39.005,
+   "island": 17,
+   "spread": 0.02
+  },
+  {
+   "cue": 13,
+   "t": "করলে",
+   "roman": "korle",
+   "start": 39.005,
+   "end": 39.405,
+   "island": 17,
+   "spread": 0.0
+  },
+  {
+   "cue": 13,
+   "t": "আর",
+   "roman": "ar",
+   "start": 39.405,
+   "end": 39.805,
+   "island": 17,
+   "spread": 0.04
+  },
+  {
+   "cue": 13,
+   "t": "নির্দেশনা",
+   "roman": "nirdeshona",
+   "start": 39.805,
+   "end": 40.425,
+   "island": 17,
+   "spread": 0.0
+  },
+  {
+   "cue": 13,
+   "t": "অনুযায়ী",
+   "roman": "onujayi",
+   "start": 40.425,
+   "end": 40.845,
+   "island": 17,
+   "spread": 0.0
+  },
+  {
+   "cue": 13,
+   "t": "প্র্যাকটিস",
+   "roman": "practice",
+   "start": 40.905,
+   "end": 41.065,
+   "island": 17,
+   "spread": 0.0
+  },
+  {
+   "cue": 13,
+   "t": "করলে,",
+   "roman": "korle,",
+   "start": 41.145,
+   "end": 41.685,
+   "island": 17,
+   "spread": 0.02
+  },
+  {
+   "cue": 14,
+   "t": "বোর্ড",
+   "roman": "board",
+   "start": 41.935,
+   "end": 42.215,
+   "island": 18,
+   "spread": 0.0
+  },
+  {
+   "cue": 14,
+   "t": "পরীক্ষায়",
+   "roman": "porikkhay",
+   "start": 42.215,
+   "end": 42.755,
+   "island": 18,
+   "spread": 0.02
+  },
+  {
+   "cue": 14,
+   "t": "A+",
+   "roman": "Aplus",
+   "start": 42.755,
+   "end": 43.495,
+   "island": 18,
+   "spread": 0.02
+  },
+  {
+   "cue": 14,
+   "t": "সহ",
+   "roman": "shoho",
+   "start": 43.495,
+   "end": 43.995,
+   "island": 18,
+   "spread": 0.04
+  },
+  {
+   "cue": 14,
+   "t": "৯০+",
+   "roman": "nobboiplus",
+   "start": 44.185,
+   "end": 45.105,
+   "island": 19,
+   "spread": 0.0
+  },
+  {
+   "cue": 14,
+   "t": "মার্কের",
+   "roman": "marker",
+   "start": 45.105,
+   "end": 45.425,
+   "island": 19,
+   "spread": 0.04
+  },
+  {
+   "cue": 15,
+   "t": "স্বপ্ন",
+   "roman": "shopno",
+   "start": 45.425,
+   "end": 46.125,
+   "island": 19,
+   "spread": 0.02
+  },
+  {
+   "cue": 15,
+   "t": "বাস্তব",
+   "roman": "bastob",
+   "start": 46.125,
+   "end": 46.685,
+   "island": 19,
+   "spread": 0.0
+  },
+  {
+   "cue": 15,
+   "t": "করা",
+   "roman": "kora",
+   "start": 46.685,
+   "end": 46.925,
+   "island": 19,
+   "spread": 0.0
+  },
+  {
+   "cue": 15,
+   "t": "সম্ভব,",
+   "roman": "shombhob,",
+   "start": 46.925,
+   "end": 47.365,
+   "island": 19,
+   "spread": 0.0
+  },
+  {
+   "cue": 15,
+   "t": "ইনশাআল্লাহ।",
+   "roman": "inshaAllah.",
+   "start": 47.665,
+   "end": 48.355,
+   "island": 20,
+   "spread": 0.0
+  },
+  {
+   "cue": 16,
+   "t": "ক্লাস",
+   "roman": "Class",
+   "start": 48.855,
+   "end": 49.095,
+   "island": 21,
+   "spread": 0.0
+  },
+  {
+   "cue": 16,
+   "t": "হয়",
+   "roman": "hoy",
+   "start": 49.095,
+   "end": 49.355,
+   "island": 21,
+   "spread": 0.02
+  },
+  {
+   "cue": 16,
+   "t": "প্রাইভেট",
+   "roman": "private",
+   "start": 49.355,
+   "end": 49.775,
+   "island": 21,
+   "spread": 0.0
+  },
+  {
+   "cue": 16,
+   "t": "ফেসবুক",
+   "roman": "Facebook",
+   "start": 49.775,
+   "end": 50.095,
+   "island": 21,
+   "spread": 0.02
+  },
+  {
+   "cue": 16,
+   "t": "গ্রুপে",
+   "roman": "grupe",
+   "start": 50.095,
+   "end": 50.475,
+   "island": 21,
+   "spread": 0.02
+  },
+  {
+   "cue": 16,
+   "t": "লাইভ।",
+   "roman": "live.",
+   "start": 50.475,
+   "end": 50.895,
+   "island": 21,
+   "spread": 0.0
+  },
+  {
+   "cue": 17,
+   "t": "সপ্তাহে",
+   "roman": "Shoptahe",
+   "start": 51.255,
+   "end": 51.675,
+   "island": 22,
+   "spread": 0.0
+  },
+  {
+   "cue": 17,
+   "t": "কমপক্ষে",
+   "roman": "kompokkhe",
+   "start": 51.675,
+   "end": 52.065,
+   "island": 22,
+   "spread": 0.02
+  },
+  {
+   "cue": 17,
+   "t": "৩",
+   "roman": "tin",
+   "start": 52.165,
+   "end": 52.335,
+   "island": 22,
+   "spread": 0.02
+  },
+  {
+   "cue": 17,
+   "t": "দিন,",
+   "roman": "din,",
+   "start": 52.335,
+   "end": 52.585,
+   "island": 22,
+   "spread": 0.0
+  },
+  {
+   "cue": 17,
+   "t": "প্রতি",
+   "roman": "proti",
+   "start": 52.905,
+   "end": 53.205,
+   "island": 23,
+   "spread": 0.0
+  },
+  {
+   "cue": 17,
+   "t": "ক্লাস",
+   "roman": "class",
+   "start": 53.205,
+   "end": 53.325,
+   "island": 23,
+   "spread": 0.02
+  },
+  {
+   "cue": 17,
+   "t": "১",
+   "roman": "ek",
+   "start": 53.325,
+   "end": 53.685,
+   "island": 23,
+   "spread": 0.02
+  },
+  {
+   "cue": 17,
+   "t": "থেকে",
+   "roman": "theke",
+   "start": 53.755,
+   "end": 53.925,
+   "island": 23,
+   "spread": 0.02
+  },
+  {
+   "cue": 17,
+   "t": "দেড়",
+   "roman": "der",
+   "start": 53.925,
+   "end": 54.105,
+   "island": 23,
+   "spread": 0.0
+  },
+  {
+   "cue": 17,
+   "t": "ঘণ্টা।",
+   "roman": "ghonta.",
+   "start": 54.105,
+   "end": 54.465,
+   "island": 23,
+   "spread": 0.0
+  },
+  {
+   "cue": 18,
+   "t": "রেকর্ডিং",
+   "roman": "Recording",
+   "start": 54.845,
+   "end": 55.265,
+   "island": 24,
+   "spread": 0.0
+  },
+  {
+   "cue": 18,
+   "t": "ও",
+   "roman": "o",
+   "start": 55.265,
+   "end": 55.425,
+   "island": 24,
+   "spread": 0.0
+  },
+  {
+   "cue": 18,
+   "t": "নোট",
+   "roman": "note",
+   "start": 55.425,
+   "end": 55.665,
+   "island": 24,
+   "spread": 0.0
+  },
+  {
+   "cue": 18,
+   "t": "ওয়েবসাইটে",
+   "roman": "websitee",
+   "start": 55.665,
+   "end": 56.265,
+   "island": 24,
+   "spread": 0.02
+  },
+  {
+   "cue": 18,
+   "t": "পাবে,",
+   "roman": "pabe,",
+   "start": 56.265,
+   "end": 56.495,
+   "island": 24,
+   "spread": 0.02
+  },
+  {
+   "cue": 19,
+   "t": "আর",
+   "roman": "ar",
+   "start": 56.755,
+   "end": 56.955,
+   "island": 25,
+   "spread": 0.0
+  },
+  {
+   "cue": 19,
+   "t": "যেকোনো",
+   "roman": "jekono",
+   "start": 56.955,
+   "end": 57.535,
+   "island": 25,
+   "spread": 0.04
+  },
+  {
+   "cue": 19,
+   "t": "সমস্যায়",
+   "roman": "shomossay",
+   "start": 57.535,
+   "end": 58.075,
+   "island": 25,
+   "spread": 0.0
+  },
+  {
+   "cue": 19,
+   "t": "ফেসবুক",
+   "roman": "Facebook",
+   "start": 58.075,
+   "end": 58.275,
+   "island": 25,
+   "spread": 0.0
+  },
+  {
+   "cue": 19,
+   "t": "গ্রুপ",
+   "roman": "group",
+   "start": 58.275,
+   "end": 58.775,
+   "island": 25,
+   "spread": 0.02
+  },
+  {
+   "cue": 19,
+   "t": "ও",
+   "roman": "o",
+   "start": 58.775,
+   "end": 58.935,
+   "island": 25,
+   "spread": 0.02
+  },
+  {
+   "cue": 19,
+   "t": "হোয়াটসঅ্যাপে",
+   "roman": "WhatsAppe",
+   "start": 58.935,
+   "end": 59.475,
+   "island": 25,
+   "spread": 0.0
+  },
+  {
+   "cue": 19,
+   "t": "সাপোর্ট",
+   "roman": "support",
+   "start": 59.475,
+   "end": 59.655,
+   "island": 25,
+   "spread": 0.02
+  },
+  {
+   "cue": 19,
+   "t": "থাকবে।",
+   "roman": "thakbe.",
+   "start": 59.655,
+   "end": 60.085,
+   "island": 25,
+   "spread": 0.0
+  },
+  {
+   "cue": 20,
+   "t": "কোর্সটি",
+   "roman": "Courseti",
+   "start": 61.095,
+   "end": 61.455,
+   "island": 26,
+   "spread": 0.0
+  },
+  {
+   "cue": 20,
+   "t": "পড়াচ্ছি",
+   "roman": "porachchi",
+   "start": 61.455,
+   "end": 61.775,
+   "island": 26,
+   "spread": 0.02
+  },
+  {
+   "cue": 20,
+   "t": "আমি",
+   "roman": "ami",
+   "start": 61.775,
+   "end": 61.895,
+   "island": 26,
+   "spread": 0.02
+  },
+  {
+   "cue": 20,
+   "t": "নিজেই।",
+   "roman": "nijei.",
+   "start": 61.895,
+   "end": 62.195,
+   "island": 26,
+   "spread": 0.0
+  },
+  {
+   "cue": 21,
+   "t": "আমার",
+   "roman": "Amar",
+   "start": 62.585,
+   "end": 62.765,
+   "island": 27,
+   "spread": 0.0
+  },
+  {
+   "cue": 21,
+   "t": "৯",
+   "roman": "noy",
+   "start": 62.765,
+   "end": 63.125,
+   "island": 27,
+   "spread": 0.02
+  },
+  {
+   "cue": 21,
+   "t": "বছরের",
+   "roman": "bochhorer",
+   "start": 63.125,
+   "end": 63.485,
+   "island": 27,
+   "spread": 0.04
+  },
+  {
+   "cue": 21,
+   "t": "অভিজ্ঞতা",
+   "roman": "obhiggota",
+   "start": 63.485,
+   "end": 63.885,
+   "island": 27,
+   "spread": 0.02
+  },
+  {
+   "cue": 21,
+   "t": "আছে।",
+   "roman": "ache.",
+   "start": 63.885,
+   "end": 64.185,
+   "island": 27,
+   "spread": 0.0
+  },
+  {
+   "cue": 22,
+   "t": "আলহামদুলিল্লাহ",
+   "roman": "Alhamdulillah",
+   "start": 64.535,
+   "end": 65.155,
+   "island": 28,
+   "spread": 0.0
+  },
+  {
+   "cue": 22,
+   "t": "৪২,০০০+",
+   "roman": "biyallishhajarplus",
+   "start": 65.375,
+   "end": 66.415,
+   "island": 29,
+   "spread": 0.0
+  },
+  {
+   "cue": 22,
+   "t": "শিক্ষার্থীকে",
+   "roman": "shikkharthike",
+   "start": 66.415,
+   "end": 67.035,
+   "island": 29,
+   "spread": 0.02
+  },
+  {
+   "cue": 22,
+   "t": "শেখানোর",
+   "roman": "shekhanor",
+   "start": 67.035,
+   "end": 67.495,
+   "island": 29,
+   "spread": 0.02
+  },
+  {
+   "cue": 22,
+   "t": "সুযোগ",
+   "roman": "shujog",
+   "start": 67.495,
+   "end": 67.775,
+   "island": 29,
+   "spread": 0.0
+  },
+  {
+   "cue": 22,
+   "t": "হয়েছে।",
+   "roman": "hoyeche.",
+   "start": 67.775,
+   "end": 68.065,
+   "island": 29,
+   "spread": 0.0
+  },
+  {
+   "cue": 23,
+   "t": "আজ",
+   "roman": "Aj",
+   "start": 69.035,
+   "end": 69.195,
+   "island": 30,
+   "spread": 0.0
+  },
+  {
+   "cue": 23,
+   "t": "থেকে",
+   "roman": "theke",
+   "start": 69.195,
+   "end": 69.495,
+   "island": 30,
+   "spread": 0.0
+  },
+  {
+   "cue": 23,
+   "t": "৭",
+   "roman": "shat",
+   "start": 69.495,
+   "end": 69.795,
+   "island": 30,
+   "spread": 0.0
+  },
+  {
+   "cue": 23,
+   "t": "দিনের",
+   "roman": "diner",
+   "start": 69.795,
+   "end": 70.075,
+   "island": 30,
+   "spread": 0.0
+  },
+  {
+   "cue": 23,
+   "t": "বিশেষ",
+   "roman": "bishesh",
+   "start": 70.075,
+   "end": 70.375,
+   "island": 30,
+   "spread": 0.02
+  },
+  {
+   "cue": 23,
+   "t": "অফার!",
+   "roman": "offer!",
+   "start": 70.375,
+   "end": 70.655,
+   "island": 30,
+   "spread": 0.02
+  },
+  {
+   "cue": 24,
+   "t": "৪৯৯",
+   "roman": "Charshoniranobboi",
+   "start": 71.015,
+   "end": 71.835,
+   "island": 31,
+   "spread": 0.0
+  },
+  {
+   "cue": 24,
+   "t": "টাকার",
+   "roman": "takar",
+   "start": 71.835,
+   "end": 72.055,
+   "island": 31,
+   "spread": 0.0
+  },
+  {
+   "cue": 24,
+   "t": "কোর্স",
+   "roman": "course",
+   "start": 72.055,
+   "end": 72.295,
+   "island": 31,
+   "spread": 0.0
+  },
+  {
+   "cue": 24,
+   "t": "এখন",
+   "roman": "ekhon",
+   "start": 72.295,
+   "end": 72.675,
+   "island": 31,
+   "spread": 0.0
+  },
+  {
+   "cue": 24,
+   "t": "মাত্র",
+   "roman": "matro",
+   "start": 72.675,
+   "end": 72.995,
+   "island": 31,
+   "spread": 0.02
+  },
+  {
+   "cue": 24,
+   "t": "৩৯৯",
+   "roman": "tinshoniranobboi",
+   "start": 73.095,
+   "end": 73.955,
+   "island": 31,
+   "spread": 0.02
+  },
+  {
+   "cue": 24,
+   "t": "টাকায়।",
+   "roman": "takay.",
+   "start": 73.955,
+   "end": 74.195,
+   "island": 31,
+   "spread": 0.0
+  },
+  {
+   "cue": 25,
+   "t": "এনরোলমেন্টের",
+   "roman": "Enrollmenter",
+   "start": 74.735,
+   "end": 75.275,
+   "island": 32,
+   "spread": 0.0
+  },
+  {
+   "cue": 25,
+   "t": "লিংক",
+   "roman": "link",
+   "start": 75.275,
+   "end": 75.455,
+   "island": 32,
+   "spread": 0.0
+  },
+  {
+   "cue": 25,
+   "t": "কমেন্ট",
+   "roman": "comment",
+   "start": 75.455,
+   "end": 75.795,
+   "island": 32,
+   "spread": 0.02
+  },
+  {
+   "cue": 25,
+   "t": "বক্সে",
+   "roman": "boxe",
+   "start": 75.795,
+   "end": 76.175,
+   "island": 32,
+   "spread": 0.02
+  },
+  {
+   "cue": 25,
+   "t": "দেওয়া",
+   "roman": "dewa",
+   "start": 76.175,
+   "end": 76.415,
+   "island": 32,
+   "spread": 0.02
+  },
+  {
+   "cue": 25,
+   "t": "আছে।",
+   "roman": "ache.",
+   "start": 76.415,
+   "end": 76.585,
+   "island": 32,
+   "spread": 0.0
+  },
+  {
+   "cue": 25,
+   "t": "আজই",
+   "roman": "Ajei",
+   "start": 77.035,
+   "end": 77.375,
+   "island": 33,
+   "spread": 0.0
+  },
+  {
+   "cue": 25,
+   "t": "জয়েন",
+   "roman": "join",
+   "start": 77.375,
+   "end": 77.495,
+   "island": 33,
+   "spread": 0.04
+  },
+  {
+   "cue": 25,
+   "t": "করো।",
+   "roman": "koro.",
+   "start": 77.495,
+   "end": 77.745,
+   "island": 33,
+   "spread": 0.0
+  },
+  {
+   "cue": 25,
+   "t": "আল্লাহ",
+   "roman": "Allah",
+   "start": 78.205,
+   "end": 78.405,
+   "island": 34,
+   "spread": 0.0
+  },
+  {
+   "cue": 25,
+   "t": "হাফেজ!",
+   "roman": "Hafez!",
+   "start": 78.405,
+   "end": 78.805,
+   "island": 34,
+   "spread": 0.0
+  }
+ ]
+}
