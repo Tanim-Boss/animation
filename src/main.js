@@ -24,48 +24,41 @@ function computeBounds() {
   return out;
 }
 
-/* transition light sweep, drawn on top of the crossfade */
 function transitionFx(ctx, t) {
+  // --- NEW: distinct geometric transition per scene cut ---
   for (let i = 1; i < SCENE_BOUNDS.length; i++) {
     const b = SCENE_BOUNDS[i].s;
     const p = (t - (b - 0.30)) / 0.60;
     if (p <= 0 || p >= 1) continue;
     const a = Math.sin(Math.PI * p);
     ctx.save();
-    ctx.globalCompositeOperation = 'lighter';
-    // soft colour bloom pushed from the left
-    ctx.globalAlpha = a * 0.20;
-    const bx = lerp(-260, W + 260, E.inOut(p));
-    ctx.fillStyle = radial(ctx, bx, 470, 760, [
-      [0, rgba('#BEF3FF', 0.34)], [0.5, rgba(P.teal, 0.10)], [1, rgba(P.teal, 0)],
-    ]);
-    ctx.fillRect(0, 0, W, H);
-    // narrow light band (vertical, travels with the bloom)
-    ctx.globalAlpha = a * 0.55;
-    ctx.save();
-    ctx.translate(bx, 0);
-    ctx.rotate(0.13);
-    ctx.fillStyle = lingrad(ctx, -190, 0, 190, 0, [
-      [0, 'rgba(255,255,255,0)'],
-      [0.42, 'rgba(178,240,255,0.10)'],
-      [0.5, 'rgba(255,255,255,0.30)'],
-      [0.58, 'rgba(178,240,255,0.10)'],
-      [1, 'rgba(255,255,255,0)'],
-    ]);
-    ctx.fillRect(-190, -420, 380, H + 840);
-    ctx.restore();
-    // a couple of thin speed lines, symmetric, subtle
-    ctx.globalAlpha = a * 0.30;
-    for (const k of [-1, 1]) {
-      const y = H * (0.5 + k * 0.30);
-      ctx.strokeStyle = lingrad(ctx, bx - 420, 0, bx + 60, 0, [
-        [0, 'rgba(190,240,255,0)'], [1, 'rgba(235,252,255,0.55)'],
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.globalAlpha = a * 0.15;
+    // --- Scene-specific geometric sweep ---
+    const sceneId = SCENE_BOUNDS[i].id;
+    if (sceneId === 'identity' || sceneId === 'progress' || sceneId === 'geometry') {
+      // 1. Identity / Progress / Geometry: diamond grid wipe
+      const bx = lerp(-260, W + 260, E.inOut(p));
+      const size = 120 * (1 + Math.sin(t * 8));
+      ctx.fillStyle = lingrad(ctx, bx - size, 0, bx + size, H, [
+        [0, rgba('#16C6B7', 0.45)], [0.5, rgba('#FFFFFF', 0.10)], [1, rgba('#16C6B7', 0)]
       ]);
-      ctx.lineWidth = 1.6;
-      ctx.beginPath();
-      ctx.moveTo(bx - 420, y + 26);
-      ctx.lineTo(bx + 40, y - 16);
-      ctx.stroke();
+      ctx.fillRect(0, 0, W, H);
+    } else if (sceneId === 'content' || sceneId === 'goal' || sceneId === 'live') {
+      // 2. Content / Goal / Live: radial iris burst
+      const bx = W / 2, by = H / 2;
+      const radius = lerp(0, Math.max(W, H) * 1.5, E.inOut(p));
+      ctx.fillStyle = radial(ctx, bx, by, radius, [
+        [0, rgba('#123B70', 0.45)], [0.5, rgba('#FFFFFF', 0.05)], [1, rgba('#123B70', 0)]
+      ]);
+      ctx.fillRect(0, 0, W, H);
+    } else {
+      // 3. Teacher / Offer / CTA: horizontal sweep bands
+      const bx = lerp(-260, W + 260, E.inOut(p));
+      ctx.fillStyle = lingrad(ctx, bx - 400, 0, bx + 400, H, [
+        [0, rgba('#071B35', 0.55)], [0.5, rgba('#FFFFFF', 0.15)], [1, rgba('#071B35', 0)]
+      ]);
+      ctx.fillRect(0, 0, W, H);
     }
     ctx.restore();
   }
