@@ -240,7 +240,7 @@ function buildBed(TL, bounds, duration) {
     // pitched riser on top
     const o = ctx.createOscillator();
     o.type = 'sawtooth';
-    o.frequency.setValueAtTime(180, t0);
+    o.frequency.value = 180;
     o.frequency.exponentialRampToValueAtTime(900, t0 + dur);
     const lp = ctx.createBiquadFilter();
     lp.type = 'lowpass';
@@ -287,17 +287,31 @@ function buildBed(TL, bounds, duration) {
     o.start(t0); o.stop(t0 + 0.06);
   }
 
+  // --- NEW: distinct bip sound for animation cues ---
+  function bip(t0, freq = 960, gain = 0.12) {
+    const o = ctx.createOscillator();
+    o.type = 'square';
+    o.frequency.value = freq;
+    // sharp attack and decay for "bip"
+    const g = ctx.createGain();
+    g.gain.setValueAtTime(0.0001, t0);
+    g.gain.exponentialRampToValueAtTime(gain, t0 + 0.005);
+    g.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.03);
+    o.connect(g).connect(sfx);
+    o.start(t0); o.stop(t0 + 0.05);
+  }
+
   function blip(t0, freq = 1320, gain = 0.10) {
     const o = ctx.createOscillator();
     o.type = 'sine';
-    o.frequency.setValueAtTime(freq, t0);
+    o.frequency.value = freq;
     o.frequency.exponentialRampToValueAtTime(freq * 1.5, t0 + 0.09);
     const g = ctx.createGain();
     g.gain.setValueAtTime(0.0001, t0);
     g.gain.exponentialRampToValueAtTime(gain, t0 + 0.01);
     g.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.22);
     o.connect(g).connect(sfx);
-    g.connect(verbSend);
+    o.connect(verbSend);
     o.start(t0); o.stop(t0 + 0.25);
   }
 
@@ -333,7 +347,7 @@ function buildBed(TL, bounds, duration) {
   function textPop(t0, gain = 0.032) {
     const o = ctx.createOscillator();
     o.type = 'sine';
-    o.frequency.setValueAtTime(760, t0);
+    o.frequency.value = 760;
     o.frequency.exponentialRampToValueAtTime(1180, t0 + 0.05);
     const g = ctx.createGain();
     g.gain.setValueAtTime(gain, t0);
@@ -417,11 +431,17 @@ function buildBed(TL, bounds, duration) {
     riser(b - 1.05, 1.05, 0.085);
     whoosh(b - 0.16, 0.6, 0.20);
     boom(b + 0.02, 0.15);
+    // --- NEW: distinct bip sound synchronized to scene animation start ---
+    bip(b, 960 + (i * 80), 0.14);
   }
 
   // subtitle phrase pops (quiet, so they only "tick" the typography)
   for (const c of TL.cues) {
-    for (const ch of c.chunks) textPop(ch.start + 0.01, 0.028);
+    for (const ch of c.chunks) {
+      // --- NEW: match bip sound to subtitle phrase start (word-level) ---
+      bip(ch.start + 0.01, 1100 + (c.i * 15), 0.032);
+      textPop(ch.start + 0.01, 0.028);
+    }
   }
 
   // 100+ enrolment counter
@@ -573,4 +593,4 @@ window.renderBed = async function (chunkIndex) {
   const bounds = window.SCENE_BOUNDS || [];
   const buf = await buildBed(TL, bounds, TL.duration);
   return { b64: bufferToWavBase64(buf), sr: SR, dur: buf.duration };
-};
+}
