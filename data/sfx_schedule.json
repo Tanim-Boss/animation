@@ -1,0 +1,154 @@
+{
+  "music": false,
+  "ambience": false,
+  "events": [
+    {
+      "time": 0.08,
+      "sound": "rise",
+      "scene": "intro",
+      "kind": "scene"
+    },
+    {
+      "time": 9.265,
+      "sound": "air",
+      "scene": "tokens",
+      "kind": "scene"
+    },
+    {
+      "time": 12.485,
+      "sound": "tick",
+      "scene": "tokens",
+      "kind": "animation-beat",
+      "cue": 2,
+      "word": 6
+    },
+    {
+      "time": 15.435,
+      "sound": "tick",
+      "scene": "tokens",
+      "kind": "animation-beat",
+      "cue": 2,
+      "word": 13
+    },
+    {
+      "time": 23.505,
+      "sound": "chime",
+      "scene": "parser",
+      "kind": "scene"
+    },
+    {
+      "time": 27.574,
+      "sound": "chime",
+      "scene": "parser",
+      "kind": "animation-beat",
+      "cue": 3,
+      "word": 7
+    },
+    {
+      "time": 34.055,
+      "sound": "mechanical",
+      "scene": "compiler",
+      "kind": "scene"
+    },
+    {
+      "time": 37.765,
+      "sound": "tick",
+      "scene": "compiler",
+      "kind": "animation-beat",
+      "cue": 4,
+      "word": 8
+    },
+    {
+      "time": 43.745,
+      "sound": "pulse",
+      "scene": "vm",
+      "kind": "scene"
+    },
+    {
+      "time": 49.52,
+      "sound": "softclick",
+      "scene": "vm",
+      "kind": "animation-beat",
+      "cue": 5,
+      "word": 10
+    },
+    {
+      "time": 53.801,
+      "sound": "tick",
+      "scene": "vm",
+      "kind": "animation-beat",
+      "cue": 5,
+      "word": 20
+    },
+    {
+      "time": 56.945,
+      "sound": "double",
+      "scene": "frames",
+      "kind": "scene"
+    },
+    {
+      "time": 60.042,
+      "sound": "softclick",
+      "scene": "frames",
+      "kind": "animation-beat",
+      "cue": 6,
+      "word": 6
+    },
+    {
+      "time": 68.665,
+      "sound": "warm",
+      "scene": "memory",
+      "kind": "scene"
+    },
+    {
+      "time": 72.846,
+      "sound": "tick",
+      "scene": "memory",
+      "kind": "animation-beat",
+      "cue": 7,
+      "word": 8
+    },
+    {
+      "time": 77.805,
+      "sound": "alert",
+      "scene": "errors",
+      "kind": "scene"
+    },
+    {
+      "time": 79.205,
+      "sound": "softclick",
+      "scene": "errors",
+      "kind": "animation-beat",
+      "cue": 8,
+      "word": 4
+    },
+    {
+      "time": 84.915,
+      "sound": "stereo",
+      "scene": "engines",
+      "kind": "scene"
+    },
+    {
+      "time": 88.964,
+      "sound": "stereo",
+      "scene": "engines",
+      "kind": "animation-beat",
+      "cue": 9,
+      "word": 9
+    },
+    {
+      "time": 92.875,
+      "sound": "resolve",
+      "scene": "recap",
+      "kind": "scene"
+    },
+    {
+      "time": 95.451,
+      "sound": "chime",
+      "scene": "recap",
+      "kind": "animation-beat",
+      "cue": 10,
+      "word": 6
+    }
+  ]
+}

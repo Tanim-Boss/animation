@@ -1,36 +1,33 @@
-# Full production pipeline for the course promo.
-#   make            -> timeline + assets + score + render + mux
-#   make stills     -> a contact sheet of key frames
-#   make align      -> re-measure the word timings from the voice-over (only
-#                      needed when the narration or the script changes)
-PY := .venv/bin/python
+PYTHON ?= $(shell if [ -x .venv/bin/python ]; then echo .venv/bin/python; else command -v python3; fi)
+NODE ?= node
 
-.PHONY: all align assets timeline score render mix mux stills clean
+.PHONY: all timeline prepare audio render mux stills test clean preview
 
-all: assets score render mix mux
+all: mux
 
-align:
-	./scripts/fetch_align_model.sh
-	$(PY) scripts/align_words.py
+timeline:
+	$(PYTHON) scripts/build_timeline.py
 
-assets:
-	$(PY) scripts/build_timeline.py
-	node scripts/prepare.mjs
+prepare: timeline
+	$(NODE) scripts/prepare.mjs
 
-score:
-	node scripts/build_audio.mjs
+audio: timeline
+	$(PYTHON) scripts/build_audio.py
 
-render:
-	node render.mjs --out out/video_silent.mp4
+render: prepare
+	$(NODE) render.mjs --out out/video_silent.mp4
 
-mix:
-	./scripts/mix_audio.sh
+mux: render audio
+	$(NODE) scripts/mux.mjs
 
-mux:
-	./scripts/mux.sh
+stills: prepare
+	$(NODE) render.mjs --stills 4,14,29,40,53,67,77,87,96,101
 
-stills:
-	node render.mjs --stills 3.6,10,19.6,23.5,26.5,31,41,49.6,55,64,72.6,79.9
+test: prepare audio
+	$(NODE) scripts/validate.mjs
+
+preview:
+	$(NODE) scripts/preview.mjs
 
 clean:
-	rm -rf out/stills out/video_silent.mp4 out/audio_master.wav data/bed.wav src/fonts.css src/data
+	rm -rf src/fonts.css src/data out/stills out/video_silent.mp4 out/audio_master.wav out/*.log
