@@ -1,144 +1,80 @@
-/* ============================================================
-   sub.js — word-by-word kinetic Bengali subtitles.
-   The phrase is fully readable, the word being pronounced right
-   now is highlighted (teal / gold), pops and glows.
-   ============================================================ */
-
-const SUB = {
-  y: 986,          // baseline
-  size: 46,
-  maxW: 1560,
-  gapEm: 0.40,
-};
-
-let _chunks = null;
-function subtitleChunks() {
-  if (_chunks) return _chunks;
-  _chunks = [];
-  for (const c of TL.cues) {
-    for (const ch of c.chunks) {
-      const words = ch.words.map((txt, i) => {
-        const w = c.words.find((x) => x.t === txt && x.start >= ch.start - 1e-6);
-        return { t: txt };
-      });
-      _chunks.push({ start: ch.start, end: ch.end, words: ch.words, cue: c.i });
-    }
-  }
-  // word-level times for the chunk: take them from the cue's word list in order
-  let k = 0;
-  for (const c of TL.cues) {
-    for (const ch of c.chunks) {
-      const ws = c.words.filter((w) => w.start >= ch.start - 1e-6 && w.end <= ch.end + 1e-6);
-      _chunks[k].wordTimes = (ws.length === ch.words.length ? ws : c.words.slice(
-        c.words.findIndex((w) => w.t === ch.words[0]),
-        c.words.findIndex((w) => w.t === ch.words[0]) + ch.words.length,
-      )).map((w) => ({ t: w.t, start: w.start, end: w.end }));
-      k++;
-    }
-  }
-  // display window = until the next chunk starts
-  for (let i = 0; i < _chunks.length; i++) {
-    const nx = _chunks[i + 1];
-    _chunks[i].dispEnd = nx ? Math.min(nx.start, _chunks[i].end + 0.9) : _chunks[i].end + 0.9;
-  }
-  return _chunks;
+/* Burned-in Bangla subtitle renderer with active-word highlighting. */
+const SUB_STYLE = { size: 40, maxWidth: 1480, y: 988, gap: 26 };
+function subtitleFont(word) {
+  const latin = /^[A-Za-z0-9_+%./:-]+$/.test(word.replace(/[০-৯৳]/g, 'x'));
+  return latin ? { family: F.en, weight: 600 } : { family: F.bn, weight: 600 };
 }
-
-const isLatin = (s) => /^[A-Za-z0-9+%·.,:!?'"()\-–—/]+$/.test(s.replace(/[০-৯৳]/g, 'x'));
-function wordFont(w) {
-  return /[A-Za-z]/.test(w) && !/[\u0980-\u09FF]/.test(w)
-    ? { family: F.en, weight: 700, size: SUB.size * 0.94 }
-    : { family: F.bn, weight: 600, size: SUB.size };
-}
-const EMPH = /([০-৯0-9])|A\+|জয়েন|অফার|ফ্রি|সম্পূর্ণ/;
-
 function drawSubtitles(ctx, t) {
-  const chunks = subtitleChunks();
-  let idx = -1;
-  for (let i = 0; i < chunks.length; i++) {
-    if (t >= chunks[i].start - 0.04 && t < chunks[i].dispEnd) { idx = i; break; }
+  let selected = null;
+  for (let ci = 0; ci < TL.cues.length && !selected; ci++) {
+    const cue = TL.cues[ci];
+    for (let hi = 0; hi < cue.chunks.length; hi++) {
+      const chunk = cue.chunks[hi];
+      const next = cue.chunks[hi + 1];
+      const displayEnd = next ? Math.min(next.start, chunk.end + 0.35) : chunk.end + 0.62;
+      if (t >= chunk.start - 0.08 && t < displayEnd) {
+        selected = { cue, chunk, ci, hi, displayEnd };
+        break;
+      }
+    }
   }
-  if (idx < 0) return;
-  const ch = chunks[idx];
-
-  // entrance / exit
-  const inP = clamp((t - (ch.start - 0.04)) / 0.18);
-  const outP = clamp((t - (ch.dispEnd - 0.12)) / 0.12);
-  const hide = window.SUB_HIDE_AT ? clamp((t - window.SUB_HIDE_AT) / 0.3) : 0;
-  const a0 = E.out(inP) * (1 - E.inOut(outP)) * (1 - E.inOutQ(hide));
-  if (a0 <= 0.004) return;
-
-  // scrim
-  ctx.save();
-  ctx.globalAlpha = a0;
-  ctx.fillStyle = lingrad(ctx, 0, 820, 0, 1058, [
-    [0, 'rgba(3,10,20,0)'],
-    [0.32, 'rgba(3,10,20,0.30)'],
-    [0.62, 'rgba(3,10,20,0.62)'],
-    [0.88, 'rgba(3,10,20,0.55)'],
-    [1, 'rgba(3,10,20,0.15)'],
-  ]);
-  ctx.fillRect(0, 820, W, 238);
-  ctx.restore();
-
-  // measure
-  const words = ch.words;
-  const gap = SUB.size * SUB.gapEm;
-  const metas = words.map((w) => {
-    const f = wordFont(w);
-    return { w, f, width: measure(ctx, w, { size: f.size, weight: f.weight, family: f.family, spacing: 0.4 }) };
+  if (!selected) return;
+  const { cue, chunk, displayEnd } = selected;
+  const inP = clamp((t - (chunk.start - 0.08)) / 0.18);
+  const outP = clamp((t - (displayEnd - 0.14)) / 0.14);
+  const alpha = out(inP) * (1 - smooth(outP));
+  if (alpha < 0.004) return;
+  const tokens = chunk.indices.map(i => cue.words[i]);
+  let current = 0;
+  for (let i = 0; i < tokens.length; i++) {
+    if (t >= tokens[i].start - 0.025) current = i;
+  }
+  const base = SUB_STYLE.size;
+  const metas = tokens.map(w => {
+    const f = subtitleFont(w.t);
+    return { ...w, ...f, width: measure(ctx, w.t, base, f.weight, f.family) };
   });
-  let total = metas.reduce((s, m) => s + m.width, 0) + gap * (metas.length - 1);
-  let sc = 1;
-  if (total > SUB.maxW) { sc = SUB.maxW / total; total = SUB.maxW; }
+  const gap = SUB_STYLE.gap;
+  const total = metas.reduce((sum, x) => sum + x.width, 0) + gap * Math.max(0, metas.length - 1);
+  const scale = Math.min(1, SUB_STYLE.maxWidth / Math.max(1, total));
+  const drawWidth = total * scale;
+  const x0 = (W - drawWidth) / 2;
+  const y = SUB_STYLE.y + (1 - out(inP)) * 10;
+  // soft lower-third scrim and a quiet glass subtitle plate
+  const scrim = ctx.createLinearGradient(0, 870, 0, H);
+  scrim.addColorStop(0, 'rgba(3,10,17,0)');
+  scrim.addColorStop(0.28, 'rgba(3,10,17,0.27)');
+  scrim.addColorStop(1, 'rgba(3,10,17,0.76)');
+  ctx.save(); ctx.globalAlpha = alpha; ctx.fillStyle = scrim; ctx.fillRect(0, 870, W, 210); ctx.restore();
+  const plateX = Math.max(116, x0 - 46), plateW = Math.min(W - 232, drawWidth + 92);
+  panel(ctx, plateX, 930, plateW, 92, { r: 24, fill: '#0A1C29', fill2: '#071721', stroke: 'rgba(145,190,210,0.13)', alpha: alpha * 0.92, shadowBlur: 22, shadowY: 5 });
+  // subtle timing bar; the active word fill tracks the spoken span.
+  rounded(ctx, plateX + 30, 1006, plateW - 60, 3, 2);
+  ctx.fillStyle = 'rgba(255,255,255,0.10)'; ctx.fill();
+  const word = metas[current];
+  const activeP = clamp((t - word.start) / Math.max(0.06, word.end - word.start));
+  const barWidth = (plateW - 60) * ((current + activeP) / Math.max(1, metas.length));
+  rounded(ctx, plateX + 30, 1006, barWidth, 3, 2); ctx.fillStyle = P.teal; ctx.globalAlpha = alpha; ctx.fill(); ctx.globalAlpha = 1;
 
-  // current word
-  let cur = -1;
-  for (let i = 0; i < ch.wordTimes.length; i++) if (t >= ch.wordTimes[i].start - 0.02) cur = i;
-
-  const baseY = SUB.y + (1 - E.out(inP)) * 10;
-  let x = 960 - total / 2;
-  ctx.save();
-  ctx.globalAlpha = a0;
-  ctx.textAlign = 'left';
+  let x = x0;
   for (let i = 0; i < metas.length; i++) {
-    const m = metas[i];
-    const isCur = i === cur;
-    const spoken = i < cur;
-    const pop = isCur ? E.out(clamp((t - ch.wordTimes[i].start + 0.02) / 0.16)) : 0;
-    const emph = EMPH.test(m.w) && metas.length > 1;
-    let alpha = isCur ? 1 : spoken ? 0.97 : 0.70;
-    let color = '#FFFFFF';
-    let glowC = null;
-    if (isCur) {
-      color = emph ? P.gold : P.tealSoft;
-      glowC = emph ? rgba(P.gold, 0.85) : rgba(P.teal, 0.9);
+    const m = metas[i]; const active = i === current;
+    const spoken = i < current;
+    const pop = active ? out(clamp((t - m.start + 0.01) / 0.14)) : 0;
+    const center = x + m.width * scale / 2;
+    if (active) {
+      ctx.save(); ctx.globalAlpha = alpha * (0.68 + 0.32 * pop);
+      rounded(ctx, center - (m.width * scale + 22) / 2, y - 29, m.width * scale + 22, 58, 15);
+      ctx.fillStyle = rgba(P.teal, 0.13); ctx.fill();
+      ctx.strokeStyle = rgba(P.teal, 0.25); ctx.lineWidth = 1; ctx.stroke(); ctx.restore();
     }
-    const scale = (1 + 0.10 * pop) * sc;
-    const drawX = x + m.width / 2;
-    const drawY = baseY - (isCur ? 3 * pop : 0);
-
-    ctx.save();
-    ctx.translate(drawX, drawY);
-    ctx.scale(scale, scale);
-    // soft dark plate under the active word for punch
-    if (isCur && pop > 0.05) {
-      ctx.save();
-      ctx.globalAlpha *= pop * 0.55;
-      roundRect(ctx, -m.width / 2 - 12, -SUB.size * 0.78, m.width + 24, SUB.size * 1.16, 14);
-      ctx.fillStyle = emph ? rgba(P.goldDeep, 0.20) : rgba(P.teal, 0.18);
-      ctx.fill();
-      ctx.restore();
-    }
-    drawText(ctx, m.w, 0, 0, {
-      size: m.f.size, family: m.f.family, weight: m.f.weight, color, alpha,
-      align: 'center', spacing: 0.4,
-      glow: glowC, glowBlur: 26,
-      shadow: 'rgba(0,6,14,0.85)', shadowBlur: 12, shadowY: 3,
-    });
+    const color = active ? P.teal2 : spoken ? '#E6F1F6' : '#A8BBC6';
+    ctx.save(); ctx.translate(center, y); ctx.scale(scale * (active ? 1.035 : 1), scale * (active ? 1.035 : 1));
+    text(ctx, m.t, 0, 0, { size: base, color, weight: active ? 700 : 600,
+      family: m.family, align: 'center', alpha: alpha * (active ? 1 : 0.88),
+      glow: active ? rgba(P.teal, 0.42) : null, glowBlur: 20,
+      shadow: 'rgba(0,5,10,0.78)', shadowBlur: 7, shadowY: 2 });
     ctx.restore();
-
-    x += m.width + gap;
+    x += m.width * scale + gap * scale;
   }
-  ctx.restore();
 }

@@ -1,33 +1,21 @@
 {
-  "name": "animation",
+  "name": "python-interpreter-explainer-bn",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
+  "type": "module",
+  "description": "A Bangla educational motion-graphics film explaining the Python interpreter pipeline.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "timeline": "node scripts/run-python.mjs scripts/build_timeline.py",
+    "prepare": "node scripts/prepare.mjs",
+    "audio": "node scripts/run-python.mjs scripts/build_audio.py",
+    "render": "node render.mjs --out out/video_silent.mp4",
+    "mux": "node scripts/mux.mjs",
+    "build": "npm run timeline && npm run prepare && npm run audio && npm run render && npm run mux",
+    "stills": "node render.mjs --stills 4,14,29,40,53,67,77,87,96,101",
+    "test": "node scripts/validate.mjs",
+    "preview": "node scripts/preview.mjs"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Tanim-Boss/animation.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Tanim-Boss/animation/issues"
-  },
-  "homepage": "https://github.com/Tanim-Boss/animation#readme",
   "dependencies": {
-    "@expo-google-fonts/baloo-da-2": "^0.4.2",
-    "@expo-google-fonts/hind-siliguri": "^0.4.1",
-    "@expo-google-fonts/noto-sans-bengali": "^0.4.4",
-    "@expo-google-fonts/poppins": "^0.4.1",
-    "@fontsource/baloo-da-2": "^5.3.0",
-    "@fontsource/hind-siliguri": "^5.3.0",
-    "@fontsource/noto-sans-bengali": "^5.3.0",
-    "@fontsource/poppins": "^5.3.0",
-    "@fontsource/tiro-bangla": "^5.3.0",
-    "@resvg/resvg-js": "^2.6.2",
     "@sparticuz/chromium": "^153.0.0",
     "puppeteer-core": "^25.17.0"
   }

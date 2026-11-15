@@ -1,16 +1,18 @@
 node_modules/
 .venv/
 __pycache__/
+*.py[cod]
 
-# generated render assets
+# Prepared runtime files (rebuilt from data + the bundled local fonts)
 src/fonts.css
-src/data/timeline.js
-data/bed.wav
+src/data/
+
+# Intermediate render/audio products; the final MP4 is intentionally retained
 out/audio_master.wav
 out/video_silent.mp4
 out/stills/
 out/frames/
 out/*.log
 
-# forced-alignment model cache (scripts/fetch_align_model.sh)
+# Optional local caches
 .cache/

@@ -1,0 +1,30 @@
+{
+  "title": "How the Python Interpreter Works",
+  "subtitle": "পাইথন ইন্টারপ্রেটারের ভেতরের যাত্রা",
+  "format": { "width": 1920, "height": 1080, "fps": 24 },
+  "scenes": [
+    { "id": "intro", "cue": 1, "chapter": "01 / THE JOURNEY", "headline": "কোডের যাত্রা", "dek": "একটি Python লাইনের ভেতরে কী ঘটে?", "transition": "opening", "sound": "rise" },
+    { "id": "tokens", "cue": 2, "chapter": "02 / LEXER", "headline": "টোকেনাইজার", "dek": "অক্ষর থেকে অর্থপূর্ণ টোকেন", "transition": "wipe", "sound": "air" },
+    { "id": "parser", "cue": 3, "chapter": "03 / PARSER", "headline": "সিনট্যাক্স ট্রি", "dek": "কোডের গঠন, দৃশ্যমান হয় একটি গাছে", "transition": "branch", "sound": "chime" },
+    { "id": "compiler", "cue": 4, "chapter": "04 / COMPILER", "headline": "বাইটকোডে রূপান্তর", "dek": "AST থেকে CPython code object", "transition": "scan", "sound": "mechanical" },
+    { "id": "vm", "cue": 5, "chapter": "05 / EVALUATION LOOP", "headline": "ভার্চুয়াল মেশিন", "dek": "একটি opcode, এক ধাপ করে", "transition": "iris", "sound": "pulse" },
+    { "id": "frames", "cue": 6, "chapter": "06 / CALL FRAMES", "headline": "কল স্ট্যাক", "dek": "প্রতিটি ফাংশনের নিজস্ব execution frame", "transition": "stack", "sound": "double" },
+    { "id": "memory", "cue": 7, "chapter": "07 / OBJECT MODEL", "headline": "নাম থেকে অবজেক্ট", "dek": "ভেরিয়েবল হলো অবজেক্টের দিকে নির্দেশ", "transition": "branch", "sound": "warm" },
+    { "id": "errors", "cue": 8, "chapter": "08 / EXCEPTIONS", "headline": "ত্রুটি হলে কী হয়?", "dek": "Traceback দেখায় ত্রুটির পথ", "transition": "glitch", "sound": "alert" },
+    { "id": "engines", "cue": 9, "chapter": "09 / IMPLEMENTATIONS", "headline": "এক ভাষা, ভিন্ন ইঞ্জিন", "dek": "CPython · PyPy · একই Python ভাষা", "transition": "split", "sound": "stereo" },
+    { "id": "recap", "cue": 10, "chapter": "10 / IN SUMMARY", "headline": "কোড থেকে ফলাফল", "dek": "টোকেন → ট্রি → বাইটকোড → এক্সিকিউশন", "transition": "resolve", "sound": "resolve" }
+  ],
+  "beats": [
+    { "cue": 2, "word": 6, "sound": "tick" },
+    { "cue": 2, "word": 13, "sound": "tick" },
+    { "cue": 3, "word": 7, "sound": "chime" },
+    { "cue": 4, "word": 8, "sound": "tick" },
+    { "cue": 5, "word": 10, "sound": "softclick" },
+    { "cue": 5, "word": 20, "sound": "tick" },
+    { "cue": 6, "word": 6, "sound": "softclick" },
+    { "cue": 7, "word": 8, "sound": "tick" },
+    { "cue": 8, "word": 4, "sound": "softclick" },
+    { "cue": 9, "word": 9, "sound": "stereo" },
+    { "cue": 10, "word": 6, "sound": "chime" }
+  ]
+}
