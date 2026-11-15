@@ -15,7 +15,10 @@ Bengali narration.
 | --- | --- |
 | `math_course_update_bn.srt` | supplied narration script (source of truth) |
 | `Generated Audio … .wav` | supplied AI male voice-over (master clock, 79.2 s) |
-| `scripts/build_timeline.py` | voice analysis → word-level timing model → `data/timeline.json` |
+| `math_course_update_bn.synced.srt` | the same script with cue times measured from the voice-over |
+| `data/translit_bn.txt` | romanised reading of the script, word for word (used only for alignment) |
+| `scripts/align_words.py` | forced alignment of the narration → `data/alignment.json` (start/end of every spoken word) |
+| `scripts/build_timeline.py` | alignment + script → cues, words, subtitle phrases → `data/timeline.json` |
 | `scripts/prepare.mjs` | inlines the fonts (`src/fonts.css`) and the timeline for the page |
 | `src/lib.js` | drawing primitives: easing, glass cards, glows, wireframes, particles, grading |
 | `src/scenes.js` | the 11 scenes, every beat anchored to a spoken word |
@@ -32,8 +35,8 @@ Bengali narration.
 ```
 SRT + voice-over WAV
         │
-        ├─ build_timeline.py   energy VAD → syllable-weighted word timeline
-        │                      (Bengali conjunct-aware syllable counting)
+        ├─ align_words.py      forced alignment → data/alignment.json (per-word times)
+        ├─ build_timeline.py   cues, words and subtitle phrases on the measured times
         ▼
    data/timeline.json ── prepare.mjs ──► src/data/timeline.js + src/fonts.css
         │
@@ -51,16 +54,26 @@ up before frame 0).
 
 ## Timing model
 
-* The voice-over is analysed with a short-time energy VAD: 27 speech segments and
-  26 real pauses are detected.
-* Sentences from the SRT are laid out across the *real* speech span with a
-  Bengali-aware syllable weight (conjuncts, vowel signs, digits and Latin tokens
-  are weighted differently), then the pauses are inserted where the narrator
-  actually breathes.
-* Words are placed inside their sentence by the same weight, so the karaoke
-  highlight follows the natural rhythm of the reading.
-* Every visual beat is written as `WT(cue, word)` in `src/scenes.js` — e.g. the
-  chapter cards start flaring on the word **“৪টি”**, the price flips on **“৩৯৯”**.
+Word timings are **measured from the voice-over**, not estimated
+(`scripts/align_words.py`, result committed in `data/alignment.json`):
+
+1. A 10 ms energy envelope of the narration finds every real pause (≥ 160 ms of
+   silence). They cut the 79 s read into 35 speech islands; the short stop
+   closures inside words ("আপডেট", "চারটি") are shorter than that and never cut.
+2. Whisper *small* (CTranslate2) is force-aligned to the script with stable-ts.
+   The model cannot write Bengali script reliably but follows romanised Bengali
+   well, so each Bengali word is paired 1:1 with a romanised reading
+   (`data/translit_bn.txt`, digits spelled as they are spoken: ১০০+ → "eksho plus").
+3. A global pass (median of 5 runs) decides which words belong to which island;
+   each island is then aligned again on its own (median of 3 runs).
+4. Every word edge next to a pause is taken from the waveform itself: a word
+   ends where the voice stops, the next one starts where it comes back.
+
+The subtitle highlight, the scene beats (`WT(cue, word)` in `src/scenes.js`) and
+the sound effects all read these times, so they move together. `make align`
+re-runs the measurement (needs `pip install faster-whisper stable-ts` and
+`scripts/fetch_align_model.sh`, ~250 MB, cached in `.cache/`); plain `make`
+only needs the committed `data/alignment.json`.
 
 ## Scenes (auto-derived from the narration)
 

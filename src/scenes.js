@@ -762,7 +762,7 @@ function sceneContent(ctx, t, s, e) {
     ctx.restore();
 
     // specs caption under the book
-    const capA = clamp((t - tBook) / 0.6) * (1 - clamp((t - tNotes) / 0.5));
+    const capA = clamp((t - tBook) / 0.6) * (1 - clamp((t - tAtoZ + 0.3) / 0.3));   // gone before the A → Z badge lands
     if (capA > 0.01) {
       drawText(ctx, 'সম্পূর্ণ বই  ·  ১৭টি চ্যাপ্টার', bcx, bcy + bh / 2 + 78, {
         size: 30, family: F.bnText, weight: 600, color: rgba('#CFE4F7', 0.9), align: 'center', alpha: capA,

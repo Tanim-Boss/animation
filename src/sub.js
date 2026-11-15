@@ -8,7 +8,7 @@ const SUB = {
   y: 986,          // baseline
   size: 46,
   maxW: 1560,
-  gapEm: 0.30,
+  gapEm: 0.40,
 };
 
 let _chunks = null;

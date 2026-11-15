@@ -3,8 +3,12 @@
 Builds data/timeline.json : cue list, word-level timings, phrase chunks and the
 master timing model for the Bengali mathematics course promo.
 
-Timing strategy
----------------
+Word timings come from data/alignment.json (forced alignment of the narration,
+see scripts/align_words.py). The syllable model below is only the fallback
+used when that file is missing.
+
+Fallback timing strategy
+------------------------
 The supplied SRT gives sentence order and approximate times; the supplied
 voice-over WAV is the master clock. We
   1. run a lightweight energy VAD on the WAV to find real speech segments,
@@ -25,6 +29,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRT = os.path.join(ROOT, "math_course_update_bn.srt")
 WAV = os.path.join(ROOT, "Generated Audio November 13, 2026 - 7_35PM.wav")
 OUT = os.path.join(ROOT, "data", "timeline.json")
+ALIGN = os.path.join(ROOT, "data", "alignment.json")
+SYNCED_SRT = os.path.join(ROOT, "math_course_update_bn.synced.srt")
 
 
 def parse_srt(path):
@@ -159,6 +165,10 @@ def main():
     for i in range(1, len(bounds)):
         bounds[i] = max(bounds[i], bounds[i - 1] + 0.35)
 
+    aligned = json.load(open(ALIGN, encoding="utf-8"))["words"] if os.path.exists(ALIGN) else None
+    if not aligned:
+        print("!! data/alignment.json missing - falling back to the syllable estimate")
+
     out_cues = []
     for ci, c in enumerate(cues):
         s, e = bounds[ci], bounds[ci + 1]
@@ -179,6 +189,12 @@ def main():
             cursor = cursor + d + p * scale
         if words:
             words[-1]["end"] = round(e, 3)
+        if aligned:
+            # measured word timings (scripts/align_words.py) replace the estimate
+            mine = [w for w in aligned if w["cue"] == c["i"]]
+            assert [w["t"] for w in mine] == [w["t"] for w in words], f"alignment is stale for cue {c['i']}"
+            for w, m in zip(words, mine):
+                w["start"], w["end"] = m["start"], m["end"]
         out_cues.append({
             "i": c["i"],
             "start": words[0]["start"],
@@ -213,10 +229,19 @@ def main():
         "voiceEnd": round(speech_end, 3),
         "segments": [[round(s, 3), round(e, 3)] for s, e in segs],
         "gaps": [[round(s, 3), round(e, 3)] for s, e in gaps],
+        "aligned": bool(aligned),
         "cues": out_cues,
     }
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     json.dump(data, open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+
+    if aligned:
+        def ts(x):
+            ms = int(round(x * 1000))
+            return f"{ms // 3600000:02d}:{ms // 60000 % 60:02d}:{ms // 1000 % 60:02d},{ms % 1000:03d}"
+        with open(SYNCED_SRT, "w", encoding="utf-8") as f:
+            for c in out_cues:
+                f.write(f"{c['i']}\n{ts(c['start'])} --> {ts(c['end'])}\n{c['text']}\n\n")
 
     print(f"speech {speech_start:.2f}-{speech_end:.2f}  segments {len(segs)}  gaps {len(gaps)}")
     bad = 0

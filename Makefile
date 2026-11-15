@@ -1,11 +1,17 @@
 # Full production pipeline for the course promo.
 #   make            -> timeline + assets + score + render + mux
 #   make stills     -> a contact sheet of key frames
+#   make align      -> re-measure the word timings from the voice-over (only
+#                      needed when the narration or the script changes)
 PY := .venv/bin/python
 
-.PHONY: all assets timeline score render mix mux stills clean
+.PHONY: all align assets timeline score render mix mux stills clean
 
 all: assets score render mix mux
+
+align:
+	./scripts/fetch_align_model.sh
+	$(PY) scripts/align_words.py
 
 assets:
 	$(PY) scripts/build_timeline.py
