@@ -1,6 +1,6 @@
 {
   "master": "audio/master.wav",
-  "duration": 90.2,
+  "duration": 83.2,
   "score": {
     "bpm": 80.0,
     "chords": [
@@ -15,7 +15,42 @@
     {
       "scene": "open",
       "start": 0.45,
-      "duration": 5.4
+      "duration": 5.631
+    },
+    {
+      "scene": "sign",
+      "start": 8.45,
+      "duration": 9.764
+    },
+    {
+      "scene": "positive",
+      "start": 20.45,
+      "duration": 8.789
+    },
+    {
+      "scene": "flip",
+      "start": 31.45,
+      "duration": 8.615
+    },
+    {
+      "scene": "addone",
+      "start": 43.45,
+      "duration": 7.21
+    },
+    {
+      "scene": "proof",
+      "start": 53.45,
+      "duration": 8.998
+    },
+    {
+      "scene": "range",
+      "start": 64.95,
+      "duration": 7.848
+    },
+    {
+      "scene": "recap",
+      "start": 75.95,
+      "duration": 4.005
     }
   ]
 }

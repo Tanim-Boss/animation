@@ -13,8 +13,8 @@ export const Captions: React.FC<{ scene: SceneMeta; tone?: string }> = ({ scene,
   const active = cues.find((c) => t >= c.start - 0.2 && t <= c.end + 0.45);
   if (!active) return null;
 
-  const inP = clamp01((t - (active.start - 0.2)) / 0.3);
-  const outP = clamp01(((active.end + 0.45) - t) / 0.35);
+  const inP = clamp01((t - (active.start - 0.2)) / 0.22);
+  const outP = clamp01(((active.end + 0.45) - t) / 0.26);
   const alpha = Math.min(inP, outP);
 
   const words = active.text.split(' ');
@@ -55,11 +55,11 @@ export const Captions: React.FC<{ scene: SceneMeta; tone?: string }> = ({ scene,
         />
         <div
           style={{
-            fontSize: 38,
+            fontSize: 39,
             fontWeight: 500,
             lineHeight: 1.32,
             letterSpacing: '0.002em',
-            color: 'rgba(240,245,255,0.94)',
+            color: 'rgba(244,248,255,0.97)',
             textShadow: '0 3px 22px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,0.8)',
             display: 'flex',
             flexWrap: 'wrap',

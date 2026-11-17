@@ -1,11 +1,11 @@
 # Two's Complement — a Remotion motion-graphics film
 
-A 90-second, 1920×1080 motion-graphics explainer on **two's complement**, the way
+An 83-second, 1920×1080 motion-graphics explainer on **two's complement**, the way
 computers store negative numbers. Everything on screen is drawn in code with
 Remotion (React → frames → H.264); there is no stock footage, no screen capture
 and no bitmap artwork apart from a procedurally generated film-grain texture.
 
-**Final film:** `out/Two-Complement-1080p.mp4` — 1920×1080, 30 fps, H.264 + AAC.
+**Final film:** `out/Two-Complement-1080p.mp4` — 1920×1080, 30 fps, 83 s, H.264 + AAC.
 
 ## The film
 

@@ -6,9 +6,9 @@ import { rgba } from '../color';
 import { Chip, Headline, Kicker, Tile } from '../ui';
 
 const CX = 960;
-const CY = 556;
-const LABEL_R = 252;
-const ARC_R = 200;
+const CY = 530;
+const LABEL_R = 236;
+const ARC_R = 186;
 const STEP = 22.5;
 
 const polar = (r: number, deg: number) => {
@@ -33,6 +33,8 @@ export const Range: React.FC = () => {
   const center = pop(frame, fps, 2.6, { stiffness: 90 });
   const legend = pop(frame, fps, 3.4, { stiffness: 90 });
   const zeroGlow = ramp(t, 4.2, 0.7);
+  const overflow = pop(frame, fps, 5.6, { stiffness: 110 });
+  const ghost = polar(LABEL_R + 56, 180);
 
   return (
     <AbsoluteFill style={{ padding: '0 140px' }}>
@@ -164,8 +166,37 @@ export const Range: React.FC = () => {
         >
           −8 … +7
         </div>
-        <div style={{ fontSize: 16, letterSpacing: '0.32em', textTransform: 'uppercase', color: COL.faint, fontWeight: 600 }}>
-          four bits · sixteen values
+      </div>
+
+      {/* +8 does not exist */}
+      <div
+        style={{
+          position: 'absolute',
+          left: ghost.x,
+          top: ghost.y,
+          transform: `translate(-50%, -50%) scale(${0.9 + overflow * 0.1})`,
+          opacity: clamp01(overflow * 1.2),
+          display: 'flex',
+          alignItems: 'center',
+          gap: 12,
+        }}
+      >
+        <div style={{ position: 'relative', fontSize: 30, fontWeight: 500, color: rgba(COL.dim, 0.5), fontVariantNumeric: 'tabular-nums' }}>
+          +8
+          <div
+            style={{
+              position: 'absolute',
+              left: -8,
+              right: -8,
+              top: '52%',
+              height: 1.5,
+              background: rgba(COL.neg, 0.75),
+              transform: `rotate(-18deg) scaleX(${clamp01((overflow - 0.3) / 0.7)})`,
+            }}
+          />
+        </div>
+        <div style={{ fontSize: 13, letterSpacing: '0.24em', textTransform: 'uppercase', color: COL.faint, fontWeight: 600 }}>
+          no room
         </div>
       </div>
 
@@ -175,7 +206,7 @@ export const Range: React.FC = () => {
           position: 'absolute',
           left: 0,
           right: 0,
-          top: 862,
+          top: 866,
           display: 'flex',
           justifyContent: 'center',
           gap: 26,

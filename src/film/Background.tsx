@@ -65,44 +65,33 @@ export const Background: React.FC<{ t: number; rain?: number; warmth?: number }>
   const glowY = 6;
   return (
     <AbsoluteFill style={{ background: COL.bg0, overflow: 'hidden' }}>
+      {/* glows, horizon, scanlines and vignette merged into one paint pass */}
       <AbsoluteFill
         style={{
-          background: `linear-gradient(180deg, #080D18 0%, #05080F 52%, #04060B 100%)`,
-        }}
-      />
-      <AbsoluteFill
-        style={{
-          background: `radial-gradient(ellipse 70% 55% at ${glowX}% ${glowY}%, rgba(126,155,255,0.16), rgba(126,155,255,0) 62%)`,
-        }}
-      />
-      <AbsoluteFill
-        style={{
-          background: `radial-gradient(ellipse 55% 45% at 12% 88%, rgba(59,224,166,${0.055 + warmth * 0.03}), rgba(59,224,166,0) 70%)`,
-        }}
-      />
-      <AbsoluteFill
-        style={{
-          background: `radial-gradient(ellipse 48% 40% at 92% 82%, rgba(255,106,136,${0.045 + warmth * 0.03}), rgba(255,106,136,0) 70%)`,
+          backgroundImage: [
+            'radial-gradient(ellipse 78% 68% at 50% 46%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.38) 78%, rgba(0,0,0,0.66) 100%)',
+            'repeating-linear-gradient(0deg, rgba(255,255,255,0.022) 0px, rgba(255,255,255,0.022) 1px, transparent 1px, transparent 4px)',
+            'radial-gradient(ellipse 1200px 420px at 50% 760px, rgba(126,155,255,0.10), rgba(126,155,255,0) 70%)',
+            `radial-gradient(ellipse 48% 40% at 92% 82%, rgba(255,106,136,${0.05 + warmth * 0.03}), rgba(255,106,136,0) 70%)`,
+            `radial-gradient(ellipse 55% 45% at 12% 88%, rgba(59,224,166,${0.055 + warmth * 0.03}), rgba(59,224,166,0) 70%)`,
+            `radial-gradient(ellipse 70% 55% at ${glowX}% ${glowY}%, rgba(126,155,255,0.16), rgba(126,155,255,0) 62%)`,
+            'linear-gradient(180deg, #080D18 0%, #05080F 52%, #04060B 100%)',
+          ].join(','),
         }}
       />
 
       {/* blueprint grid */}
       <AbsoluteFill
         style={{
-          backgroundImage: `linear-gradient(to right, rgba(150,175,230,0.055) 1px, transparent 1px), linear-gradient(to bottom, rgba(150,175,230,0.055) 1px, transparent 1px)`,
-          backgroundSize: '80px 80px',
-          backgroundPosition: `${-gridShift}px ${-gridShift * 0.5}px`,
-          maskImage: 'radial-gradient(ellipse 78% 72% at 50% 48%, black 8%, transparent 76%)',
-          WebkitMaskImage: 'radial-gradient(ellipse 78% 72% at 50% 48%, black 8%, transparent 76%)',
-        }}
-      />
-      <AbsoluteFill
-        style={{
-          backgroundImage: `linear-gradient(to right, rgba(150,175,230,0.09) 1px, transparent 1px), linear-gradient(to bottom, rgba(150,175,230,0.09) 1px, transparent 1px)`,
-          backgroundSize: '400px 400px',
-          backgroundPosition: `${-gridShift * 1.6}px ${-gridShift * 0.8}px`,
-          maskImage: 'radial-gradient(ellipse 60% 58% at 50% 46%, black 0%, transparent 72%)',
-          WebkitMaskImage: 'radial-gradient(ellipse 60% 58% at 50% 46%, black 0%, transparent 72%)',
+          backgroundImage: [
+            'linear-gradient(to right, rgba(150,175,230,0.085) 1px, transparent 1px)',
+            'linear-gradient(to bottom, rgba(150,175,230,0.085) 1px, transparent 1px)',
+            'linear-gradient(to right, rgba(150,175,230,0.05) 1px, transparent 1px)',
+            'linear-gradient(to bottom, rgba(150,175,230,0.05) 1px, transparent 1px)',
+          ].join(','),
+          backgroundSize: '400px 400px, 400px 400px, 80px 80px, 80px 80px',
+          maskImage: 'radial-gradient(ellipse 70% 66% at 50% 47%, black 4%, transparent 74%)',
+          WebkitMaskImage: 'radial-gradient(ellipse 70% 66% at 50% 47%, black 4%, transparent 74%)',
         }}
       />
 

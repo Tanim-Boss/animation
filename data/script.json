@@ -55,7 +55,7 @@
       "id": "addone",
       "chapter": "04",
       "kicker": "Step 2 — add one",
-      "minSeconds": 12,
+      "minSeconds": 10,
       "narration": "Now add one. One zero one zero plus one is one zero one one. That is minus five.",
       "captions": [
         "Add 1 to the flipped value",
@@ -67,7 +67,7 @@
       "id": "proof",
       "chapter": "05",
       "kicker": "Why it works",
-      "minSeconds": 13,
+      "minSeconds": 11.5,
       "narration": "And it checks out. Plus five plus minus five is one zero zero zero zero. The extra bit falls off, and we are left with zero.",
       "captions": [
         "0101 + 1011 = 1 0000",
@@ -79,7 +79,7 @@
       "id": "range",
       "chapter": "06",
       "kicker": "The range of four bits",
-      "minSeconds": 13,
+      "minSeconds": 11,
       "narration": "That is why four bits reach from minus eight up to plus seven. One more negative value than positive, because zero needs a home.",
       "captions": [
         "Four bits hold sixteen values: −8 to +7",
@@ -90,7 +90,7 @@
       "id": "recap",
       "chapter": "07",
       "kicker": "Recap",
-      "minSeconds": 9,
+      "minSeconds": 7.5,
       "narration": "Flip the bits, then add one. That is two's complement.",
       "captions": [
         "Flip. Add one. Done.",

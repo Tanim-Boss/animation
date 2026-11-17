@@ -8,7 +8,7 @@ import { Chip, Headline, Kicker, Meta, Tile, ValueBadge } from '../ui';
 const SIZE = 138;
 const GAP = 16;
 const STEP = SIZE + GAP;
-const LSB_CENTER = 1272;
+const LSB_CENTER = 1162;
 const COL_CENTERS = [0, 1, 2, 3].map((i) => LSB_CENTER - i * STEP);
 const OPERAND_LEFT = COL_CENTERS[3] - SIZE / 2;
 const CARRY_CENTER = COL_CENTERS[3] - STEP;
@@ -165,15 +165,16 @@ export const Proof: React.FC = () => {
           <div
             style={{
               position: 'absolute',
-              top: -44,
-              left: -30,
-              width: 200,
+              top: 48,
+              left: -172,
+              width: 150,
+              textAlign: 'right',
               fontSize: 13,
               letterSpacing: '0.26em',
               fontWeight: 600,
               textTransform: 'uppercase',
               color: TONE.carry.main,
-              opacity: clamp01((carryOut - 0.6) * 3) * (1 - discard),
+              opacity: clamp01((carryOut - 0.6) * 3) * (1 - discard * 1.6),
             }}
           >
             carry out
@@ -215,7 +216,7 @@ export const Proof: React.FC = () => {
       <div
         style={{
           position: 'absolute',
-          top: ROW_R + 44,
+          top: ROW_R + SIZE + 18,
           left: CARRY_CENTER - 120,
           width: 240,
           textAlign: 'center',
@@ -232,7 +233,7 @@ export const Proof: React.FC = () => {
         style={{
           position: 'absolute',
           top: ROW_R + 18,
-          left: 1420,
+          left: 1310,
           display: 'flex',
           flexDirection: 'column',
           gap: 6,

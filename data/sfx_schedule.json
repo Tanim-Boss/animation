@@ -113,142 +113,142 @@
     {
       "scene": "proof",
       "kind": "click",
-      "time": 58.35
+      "time": 56.35
     },
     {
       "scene": "proof",
       "kind": "click",
-      "time": 58.67
+      "time": 56.67
     },
     {
       "scene": "proof",
       "kind": "click",
-      "time": 58.99
+      "time": 56.99
     },
     {
       "scene": "proof",
       "kind": "click",
-      "time": 59.31
+      "time": 57.31
     },
     {
       "scene": "proof",
       "kind": "blip",
-      "time": 59.75
+      "time": 57.75
     },
     {
       "scene": "proof",
       "kind": "whoosh",
-      "time": 61.4
+      "time": 59.4
     },
     {
       "scene": "range",
       "kind": "whoosh",
-      "time": 68.12
+      "time": 64.62
     },
     {
       "scene": "range",
       "kind": "tick",
-      "time": 69.35
+      "time": 65.85
     },
     {
       "scene": "range",
       "kind": "tick",
-      "time": 69.395
+      "time": 65.895
     },
     {
       "scene": "range",
       "kind": "tick",
-      "time": 69.44
+      "time": 65.94
     },
     {
       "scene": "range",
       "kind": "tick",
-      "time": 69.485
+      "time": 65.985
     },
     {
       "scene": "range",
       "kind": "tick",
-      "time": 69.53
+      "time": 66.03
     },
     {
       "scene": "range",
       "kind": "tick",
-      "time": 69.575
+      "time": 66.075
     },
     {
       "scene": "range",
       "kind": "tick",
-      "time": 69.62
+      "time": 66.12
     },
     {
       "scene": "range",
       "kind": "tick",
-      "time": 69.665
+      "time": 66.165
     },
     {
       "scene": "range",
       "kind": "tick",
-      "time": 69.71
+      "time": 66.21
     },
     {
       "scene": "range",
       "kind": "tick",
-      "time": 69.755
+      "time": 66.255
     },
     {
       "scene": "range",
       "kind": "tick",
-      "time": 69.8
+      "time": 66.3
     },
     {
       "scene": "range",
       "kind": "tick",
-      "time": 69.845
+      "time": 66.345
     },
     {
       "scene": "range",
       "kind": "tick",
-      "time": 69.89
+      "time": 66.39
     },
     {
       "scene": "range",
       "kind": "tick",
-      "time": 69.935
+      "time": 66.435
     },
     {
       "scene": "range",
       "kind": "tick",
-      "time": 69.98
+      "time": 66.48
     },
     {
       "scene": "range",
       "kind": "tick",
-      "time": 70.025
+      "time": 66.525
     },
     {
       "scene": "recap",
       "kind": "click",
-      "time": 82.0
+      "time": 76.5
     },
     {
       "scene": "recap",
       "kind": "click",
-      "time": 82.34
+      "time": 76.84
     },
     {
       "scene": "recap",
       "kind": "click",
-      "time": 82.68
+      "time": 77.18
     },
     {
       "scene": "recap",
       "kind": "riser",
-      "time": 85.3
+      "time": 79.8
     },
     {
       "scene": "recap",
       "kind": "impact",
-      "time": 86.1
+      "time": 80.6
     }
   ]
 }

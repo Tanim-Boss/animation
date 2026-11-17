@@ -32,7 +32,6 @@ export const AddOne: React.FC = () => {
   const badge = pop(frame, fps, 5.1, { stiffness: 110 });
   const pulse = clamp01((t - 4.35) / 0.95);
   const arrow = ramp(t, 2.7, 0.6);
-  const meta = pop(frame, fps, 5.7, { stiffness: 100 });
 
   return (
     <AbsoluteFill style={{ padding: '0 140px' }}>
@@ -156,22 +155,32 @@ export const AddOne: React.FC = () => {
         </ValueBadge>
       </div>
 
-      <div
-        style={{
-          position: 'absolute',
-          top: 858,
-          left: 0,
-          right: 0,
-          display: 'flex',
-          justifyContent: 'center',
-          opacity: clamp01(meta * 1.3),
-        }}
-      >
-        <Meta at={5.7} style={{ fontSize: 17, letterSpacing: '0.26em' }}>
-          read as signed <span style={{ color: COL.faint, margin: '0 16px' }}>·</span>{' '}
-          <span style={{ color: TONE.neg.main }}>−8 + 2 + 1 = −5</span>
-        </Meta>
+      {/* signed place values under the result */}
+      <div style={{ position: 'absolute', top: 818, left: LEFT, display: 'flex', gap: GAP }}>
+        {['−8', '4', '2', '1'].map((w, i) => {
+          const p = pop(frame, fps, 6.35 + i * 0.11, { stiffness: 120 });
+          const signed = i === 0;
+          return (
+            <div
+              key={i}
+              style={{
+                width: SIZE,
+                textAlign: 'center',
+                fontSize: signed ? 32 : 27,
+                fontWeight: signed ? 600 : 500,
+                color: signed ? TONE.neg.main : COL.faint,
+                opacity: clamp01(p) * (signed ? 1 : 0.85),
+                transform: `translateY(${(1 - p) * 10}px)`,
+                fontVariantNumeric: 'tabular-nums',
+                textShadow: signed ? `0 0 24px ${rgba(COL.neg, 0.6)}` : undefined,
+              }}
+            >
+              {w}
+            </div>
+          );
+        })}
       </div>
+
     </AbsoluteFill>
   );
 };

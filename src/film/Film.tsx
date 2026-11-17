@@ -73,7 +73,8 @@ export const Film: React.FC = () => {
 
       <AbsoluteFill
         style={{
-          background: 'linear-gradient(180deg, rgba(4,6,12,0) 58%, rgba(4,6,12,0.55) 82%, rgba(4,6,12,0.8) 100%)',
+          background:
+            'linear-gradient(180deg, rgba(4,6,12,0) 76%, rgba(4,6,12,0.34) 90%, rgba(4,6,12,0.55) 100%)',
           pointerEvents: 'none',
         }}
       />
