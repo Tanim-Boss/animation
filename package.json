@@ -1,22 +1,31 @@
 {
-  "name": "python-interpreter-explainer-bn",
+  "name": "twos-complement-motion",
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "A Bangla educational motion-graphics film explaining the Python interpreter pipeline.",
+  "description": "A cinematic motion-graphics explainer on two's complement, built with Remotion.",
   "scripts": {
-    "timeline": "node scripts/run-python.mjs scripts/build_timeline.py",
-    "prepare": "node scripts/prepare.mjs",
+    "studio": "node scripts/studio.mjs",
+    "prepare:browser": "node scripts/prepare-browser.mjs",
     "audio": "node scripts/run-python.mjs scripts/build_audio.py",
-    "render": "node render.mjs --out out/video_silent.mp4",
-    "mux": "node scripts/mux.mjs",
-    "build": "npm run timeline && npm run prepare && npm run audio && npm run render && npm run mux",
-    "stills": "node render.mjs --stills 4,14,29,40,53,67,77,87,96,101",
-    "test": "node scripts/validate.mjs",
-    "preview": "node scripts/preview.mjs"
+    "stills": "node scripts/stills.mjs",
+    "render": "node scripts/render.mjs",
+    "build": "npm run setup && npm run audio && npm run render",
+    "typecheck": "tsc --noEmit",
+    "setup": "node scripts/prepare-browser.mjs && node scripts/make-grain.mjs"
   },
   "dependencies": {
-    "@sparticuz/chromium": "^153.0.0",
-    "puppeteer-core": "^25.17.0"
+    "@remotion/bundler": "4.0.544",
+    "@remotion/cli": "4.0.544",
+    "@remotion/renderer": "4.0.544",
+    "@sparticuz/chromium": "153.0.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "remotion": "4.0.544"
+  },
+  "devDependencies": {
+    "@types/react": "19.0.0",
+    "@types/react-dom": "19.0.0",
+    "typescript": "5.7.3"
   }
 }

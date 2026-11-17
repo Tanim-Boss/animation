@@ -1,68 +1,86 @@
-# How the Python Interpreter Works — বাংলা অ্যানিমেশন
+# Two's Complement — a Remotion motion-graphics film
 
-A polished, approximately **103-second** educational motion-graphics film explaining what happens between a Python source file and its result. The narration and burned-in karaoke-style subtitles are in Bangla; the active word is highlighted as it is spoken.
+An 83-second, 1920×1080 motion-graphics explainer on **two's complement**, the way
+computers store negative numbers. Everything on screen is drawn in code with
+Remotion (React → frames → H.264); there is no stock footage, no screen capture
+and no bitmap artwork apart from a procedurally generated film-grain texture.
 
-**Final video:** `out/Python-Interpreter-Works-Bangla-1080p.mp4`
-
-**Picture:** 1920×1080 · 24 fps · H.264 · 16:9
-
-**Sound:** Bangla narration plus short, event-triggered sound effects only — **no music or ambient bed**.
+**Final film:** `out/Two-Complement-1080p.mp4` — 1920×1080, 30 fps, 83 s, H.264 + AAC.
 
 ## The film
 
-Ten scenes follow one example through the interpreter pipeline:
+| # | Chapter | What happens on screen |
+| - | ------- | ---------------------- |
+| 00 | Title | Kinetic type over a field of drifting binary; a `0101 → 1011` teaser strip |
+| 01 | The sign bit | A 4-bit register; the MSB lifts out, gets bracketed, and two rule cards explain `0 → positive`, `1 → negative` |
+| 02 | A positive number | `+5 = 0101` with place values, per-bit contributions, `4 + 1 = 5` |
+| 03 | Step 1 — flip every bit | Every tile rotates 180° in 3D, `0101 → 1010`, the one's complement |
+| 04 | Step 2 — add one | `1010 + 1` in column form; the LSB flips `0 → 1` with an amber pulse, result `1011 = −5` |
+| 05 | Why it works | `0101 + 1011` with a carry rippling right-to-left; the 5th bit is produced, then discarded; `a + (−a) = 0` |
+| 06 | The range of four bits | A 16-value wheel from `−8` to `+7`, with zero taking a slot |
+| 07 | Recap | Three cards — flip, add one, read as negative — then the end lockup |
 
-1. Source code enters CPython
-2. Lexical analysis and tokenization
-3. Parsing into an abstract syntax tree (AST)
-4. Compilation to a code object and bytecode, with an optional `.pyc` cache
-5. CPython's evaluation loop and value stack
-6. Function call frames and the call stack
-7. Names, objects, reference counting, and cyclic garbage collection
-8. Exceptions and tracebacks
-9. CPython and PyPy as different Python implementations
-10. A visual recap from source to execution result
+Captions are burned in and timed from the measured narration, with a word-by-word
+reveal. Scene cuts carry a light sweep, and the whole piece mixes a synthesised
+ambient score, UI sound effects and narration with side-chain ducking.
 
-Scene cuts use distinct wipes, branching-line reveals, scans, an iris, stacked panels, glitch bands, split-screen motion, and a resolving ring. Scene entrances and selected visual beats have restrained, original UI-style sound cues.
+## Build
 
-## Word-highlight timing
-
-`audio/python-interpreter-bn.wav` is the master narration. `scripts/build_timeline.py` measures its voiced and silent spans, snaps paragraph/scene boundaries to nearby breaths, and distributes each word over the measured speech windows using Bengali syllable weights. This keeps the highlight moving with the narration and lets it hold during breaths. The resulting word timings and subtitle chunks are in `data/timeline.json`; a plain phrase-level SRT is also written to `data/subtitles-bn.srt`.
-
-## Sound policy
-
-`scripts/build_audio.py` creates short, one-shot transition and animation sounds, then mixes them under the narration. There is no continuous score, room tone, or ambience. The schedule is saved in `data/sfx_schedule.json` (`music: false`, `ambience: false`) so the mix is auditable and reproducible.
-
-## Rebuild
-
-Requirements: Node.js 22+, Python 3.10+, and the bundled local fonts in `assets/fonts/`.
+Requirements: Node.js 22+ and Python 3.10+ (standard library only for audio).
 
 ```bash
-python3 -m venv .venv
-.venv/bin/pip install -r requirements.txt
-npm ci
-npm run build
+npm install
+npm run setup        # provisions the headless Chromium used by Remotion
+npm run audio        # synthesises score + SFX and mixes public/audio/master.wav
+npm run render       # renders out/Two-Complement-1080p.mp4
 ```
 
-Or run `make`. The build regenerates the voice-derived timeline, inline font/runtime files, narration-plus-SFX master, silent animation, and final MP4. `npm run stills` renders representative frames; `npm test` validates the timeline, sound schedule, and source syntax.
+`npm run build` runs setup → audio → render. `npm run stills -- --times=3,12,25`
+writes reference frames to `out/stills/`, and `npm run typecheck` type-checks the
+whole composition.
+
+### Why the custom browser provisioning?
+
+Remotion normally downloads Chrome Headless Shell from `remotion.media`. In this
+sandbox that host is unreachable, so `scripts/prepare-browser.mjs` unpacks the
+Chromium build that ships on npm (`@sparticuz/chromium`) plus its shared
+libraries, and every script launches Remotion against that binary with
+`LD_LIBRARY_PATH` pointed at the extracted libraries.
+
+## Timing model
+
+The edit is audio-first. Each scene declares a `minSeconds` floor in
+`data/script.json`; the real duration is `max(minSeconds, 0.45 + narration + 0.7)`.
+`src/film/timeline.ts` and `scripts/build_audio.py` implement exactly the same
+rule, so the picture and the mix stay in sync. Caption cues are distributed over
+the spoken window by character weight, which keeps each line on screen for about
+as long as it takes to say it.
 
 ## Project map
 
 | Path | Purpose |
 | --- | --- |
-| `data/narration_bn.txt` | Bangla narration script, one scene per line |
-| `audio/python-interpreter-bn.wav` | Synthesized Bangla voice-over |
-| `data/project.json` | Scene titles, transition styles, and SFX beats |
-| `data/timeline.json` | Voice activity, scene bounds, chunks, and per-word start/end times |
-| `data/subtitles-bn.srt` | Phrase-level subtitle sidecar |
-| `scripts/build_timeline.py` | Voice activity analysis and word-highlight timeline generation |
-| `scripts/build_audio.py` | Discrete original SFX plus narration; intentionally no music |
-| `scripts/prepare.mjs` | Inlines bundled typefaces and runtime data for local Chromium rendering |
-| `src/lib.js` | Typography, color, panels, code-window, and canvas primitives |
-| `src/scenes.js` | Ten deterministic explainer scenes |
-| `src/sub.js` | Burned-in Bangla subtitles with an active-word highlight |
-| `src/main.js` | Frame-accurate compositor and scene transitions |
-| `render.mjs` | Chromium frame renderer and H.264 silent-video encoder |
-| `scripts/mux.mjs` | Final H.264/AAC mux |
+| `src/index.ts` | Remotion entry point |
+| `src/Root.tsx` | Composition registration (1920×1080, 30 fps) |
+| `src/film/Film.tsx` | Scene sequencing, audio track, caption layer, end fade |
+| `src/film/timeline.ts` | Scene durations, caption cues, cut list |
+| `src/film/theme.ts` | Palette, tone system, typography constants |
+| `src/film/ui.tsx` | 3D bit tiles, kickers, masked headlines, chips, brackets |
+| `src/film/Background.tsx` | Grid, ambient light, binary rain, vignette, grain |
+| `src/film/scenes/*.tsx` | The eight scenes |
+| `data/script.json` | Narration script, captions, scene floors |
+| `data/narration.json` | Measured narration durations and clip paths |
+| `data/sfx_schedule.json` | Every sound event with its timestamp (written by the build) |
+| `scripts/build_audio.py` | Score synthesis, SFX, narration placement, ducking, master WAV |
+| `scripts/prepare-browser.mjs` | Chromium provisioning for offline rendering |
+| `scripts/render.mjs` | Bundles the composition and encodes the MP4 |
+| `scripts/make-grain.mjs` | Generates the tileable grain texture |
+| `public/fonts/` | Poppins (bundled, loaded through `@font-face`) |
 
-The graphics are generated procedurally from canvas paths and bundled local fonts; no remote images, stock footage, or external media are needed.
+## Sound
+
+`scripts/build_audio.py` writes the whole soundtrack from oscillators and noise:
+a four-chord pad (Am9 · Fmaj7 · Cmaj7 · G6 at 80 BPM), a soft sub pulse, shaker,
+arpeggio, and short UI effects (whoosh, click, blip, impact, riser, wheel ticks).
+The score is ducked under the voice by an envelope derived from the narration
+track itself, then the master is peak-normalised to −1 dBFS.
