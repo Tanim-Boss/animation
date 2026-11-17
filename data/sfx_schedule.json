@@ -1,154 +1,254 @@
 {
-  "music": false,
-  "ambience": false,
   "events": [
     {
-      "time": 0.08,
-      "sound": "rise",
-      "scene": "intro",
-      "kind": "scene"
+      "scene": "open",
+      "kind": "impact",
+      "time": 0.05
     },
     {
-      "time": 9.265,
-      "sound": "air",
-      "scene": "tokens",
-      "kind": "scene"
+      "scene": "open",
+      "kind": "click",
+      "time": 1.25
     },
     {
-      "time": 12.485,
-      "sound": "tick",
-      "scene": "tokens",
-      "kind": "animation-beat",
-      "cue": 2,
-      "word": 6
+      "scene": "sign",
+      "kind": "click",
+      "time": 9.1
     },
     {
-      "time": 15.435,
-      "sound": "tick",
-      "scene": "tokens",
-      "kind": "animation-beat",
-      "cue": 2,
-      "word": 13
+      "scene": "sign",
+      "kind": "click",
+      "time": 9.19
     },
     {
-      "time": 23.505,
-      "sound": "chime",
-      "scene": "parser",
-      "kind": "scene"
+      "scene": "sign",
+      "kind": "click",
+      "time": 9.28
     },
     {
-      "time": 27.574,
-      "sound": "chime",
-      "scene": "parser",
-      "kind": "animation-beat",
-      "cue": 3,
-      "word": 7
+      "scene": "sign",
+      "kind": "click",
+      "time": 9.37
     },
     {
-      "time": 34.055,
-      "sound": "mechanical",
-      "scene": "compiler",
-      "kind": "scene"
+      "scene": "sign",
+      "kind": "blip",
+      "time": 10.65
     },
     {
-      "time": 37.765,
-      "sound": "tick",
-      "scene": "compiler",
-      "kind": "animation-beat",
-      "cue": 4,
-      "word": 8
+      "scene": "sign",
+      "kind": "whoosh",
+      "time": 12.95
     },
     {
-      "time": 43.745,
-      "sound": "pulse",
-      "scene": "vm",
-      "kind": "scene"
+      "scene": "positive",
+      "kind": "click",
+      "time": 21.5
     },
     {
-      "time": 49.52,
-      "sound": "softclick",
-      "scene": "vm",
-      "kind": "animation-beat",
-      "cue": 5,
-      "word": 10
+      "scene": "positive",
+      "kind": "click",
+      "time": 21.59
     },
     {
-      "time": 53.801,
-      "sound": "tick",
-      "scene": "vm",
-      "kind": "animation-beat",
-      "cue": 5,
-      "word": 20
+      "scene": "positive",
+      "kind": "click",
+      "time": 21.68
     },
     {
-      "time": 56.945,
-      "sound": "double",
-      "scene": "frames",
-      "kind": "scene"
+      "scene": "positive",
+      "kind": "click",
+      "time": 21.77
     },
     {
-      "time": 60.042,
-      "sound": "softclick",
-      "scene": "frames",
-      "kind": "animation-beat",
-      "cue": 6,
-      "word": 6
+      "scene": "positive",
+      "kind": "blip",
+      "time": 25.05
     },
     {
-      "time": 68.665,
-      "sound": "warm",
-      "scene": "memory",
-      "kind": "scene"
+      "scene": "flip",
+      "kind": "whoosh",
+      "time": 31.1
     },
     {
-      "time": 72.846,
-      "sound": "tick",
-      "scene": "memory",
-      "kind": "animation-beat",
-      "cue": 7,
-      "word": 8
+      "scene": "flip",
+      "kind": "click",
+      "time": 33.25
     },
     {
-      "time": 77.805,
-      "sound": "alert",
-      "scene": "errors",
-      "kind": "scene"
+      "scene": "flip",
+      "kind": "click",
+      "time": 33.59
     },
     {
-      "time": 79.205,
-      "sound": "softclick",
-      "scene": "errors",
-      "kind": "animation-beat",
-      "cue": 8,
-      "word": 4
+      "scene": "flip",
+      "kind": "click",
+      "time": 33.93
     },
     {
-      "time": 84.915,
-      "sound": "stereo",
-      "scene": "engines",
-      "kind": "scene"
+      "scene": "flip",
+      "kind": "click",
+      "time": 34.27
     },
     {
-      "time": 88.964,
-      "sound": "stereo",
-      "scene": "engines",
-      "kind": "animation-beat",
-      "cue": 9,
-      "word": 9
+      "scene": "flip",
+      "kind": "blip",
+      "time": 36.1
     },
     {
-      "time": 92.875,
-      "sound": "resolve",
+      "scene": "addone",
+      "kind": "click",
+      "time": 45.1
+    },
+    {
+      "scene": "addone",
+      "kind": "click",
+      "time": 47.05
+    },
+    {
+      "scene": "addone",
+      "kind": "blip",
+      "time": 48.1
+    },
+    {
+      "scene": "proof",
+      "kind": "click",
+      "time": 58.35
+    },
+    {
+      "scene": "proof",
+      "kind": "click",
+      "time": 58.67
+    },
+    {
+      "scene": "proof",
+      "kind": "click",
+      "time": 58.99
+    },
+    {
+      "scene": "proof",
+      "kind": "click",
+      "time": 59.31
+    },
+    {
+      "scene": "proof",
+      "kind": "blip",
+      "time": 59.75
+    },
+    {
+      "scene": "proof",
+      "kind": "whoosh",
+      "time": 61.4
+    },
+    {
+      "scene": "range",
+      "kind": "whoosh",
+      "time": 68.12
+    },
+    {
+      "scene": "range",
+      "kind": "tick",
+      "time": 69.35
+    },
+    {
+      "scene": "range",
+      "kind": "tick",
+      "time": 69.395
+    },
+    {
+      "scene": "range",
+      "kind": "tick",
+      "time": 69.44
+    },
+    {
+      "scene": "range",
+      "kind": "tick",
+      "time": 69.485
+    },
+    {
+      "scene": "range",
+      "kind": "tick",
+      "time": 69.53
+    },
+    {
+      "scene": "range",
+      "kind": "tick",
+      "time": 69.575
+    },
+    {
+      "scene": "range",
+      "kind": "tick",
+      "time": 69.62
+    },
+    {
+      "scene": "range",
+      "kind": "tick",
+      "time": 69.665
+    },
+    {
+      "scene": "range",
+      "kind": "tick",
+      "time": 69.71
+    },
+    {
+      "scene": "range",
+      "kind": "tick",
+      "time": 69.755
+    },
+    {
+      "scene": "range",
+      "kind": "tick",
+      "time": 69.8
+    },
+    {
+      "scene": "range",
+      "kind": "tick",
+      "time": 69.845
+    },
+    {
+      "scene": "range",
+      "kind": "tick",
+      "time": 69.89
+    },
+    {
+      "scene": "range",
+      "kind": "tick",
+      "time": 69.935
+    },
+    {
+      "scene": "range",
+      "kind": "tick",
+      "time": 69.98
+    },
+    {
+      "scene": "range",
+      "kind": "tick",
+      "time": 70.025
+    },
+    {
       "scene": "recap",
-      "kind": "scene"
+      "kind": "click",
+      "time": 82.0
     },
     {
-      "time": 95.451,
-      "sound": "chime",
       "scene": "recap",
-      "kind": "animation-beat",
-      "cue": 10,
-      "word": 6
+      "kind": "click",
+      "time": 82.34
+    },
+    {
+      "scene": "recap",
+      "kind": "click",
+      "time": 82.68
+    },
+    {
+      "scene": "recap",
+      "kind": "riser",
+      "time": 85.3
+    },
+    {
+      "scene": "recap",
+      "kind": "impact",
+      "time": 86.1
     }
   ]
 }

@@ -1,0 +1,101 @@
+{
+  "title": "Two's Complement",
+  "subtitle": "How computers store negative numbers",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "scenes": [
+    {
+      "id": "open",
+      "chapter": "00",
+      "kicker": "Binary arithmetic",
+      "minSeconds": 8,
+      "narration": "Every computer stores negative numbers the same way: two's complement. Here's how it works.",
+      "captions": [
+        "Every computer stores negative numbers the same way.",
+        "It's called two's complement."
+      ]
+    },
+    {
+      "id": "sign",
+      "chapter": "01",
+      "kicker": "The sign bit",
+      "minSeconds": 12,
+      "narration": "Look at the leftmost bit. It is called the most significant bit. If it is zero, the number is positive. If it is one, the number is negative.",
+      "captions": [
+        "The leftmost bit is the most significant bit.",
+        "MSB = 0  →  positive",
+        "MSB = 1  →  negative"
+      ]
+    },
+    {
+      "id": "positive",
+      "chapter": "02",
+      "kicker": "A positive number",
+      "minSeconds": 11,
+      "narration": "Take plus five. In four bits, that is zero one zero one. The leading zero is the sign, and it says positive.",
+      "captions": [
+        "+5 in four bits is 0101",
+        "Sign bit 0 — this number is positive"
+      ]
+    },
+    {
+      "id": "flip",
+      "chapter": "03",
+      "kicker": "Step 1 — flip every bit",
+      "minSeconds": 12,
+      "narration": "To negate it, flip every single bit. Zeros become ones, and ones become zeros. This is the one's complement.",
+      "captions": [
+        "Flip every bit of 0101",
+        "0 → 1 and 1 → 0 gives 1010",
+        "That's the one's complement"
+      ]
+    },
+    {
+      "id": "addone",
+      "chapter": "04",
+      "kicker": "Step 2 — add one",
+      "minSeconds": 12,
+      "narration": "Now add one. One zero one zero plus one is one zero one one. That is minus five.",
+      "captions": [
+        "Add 1 to the flipped value",
+        "1010 + 1 = 1011",
+        "1011 is minus five"
+      ]
+    },
+    {
+      "id": "proof",
+      "chapter": "05",
+      "kicker": "Why it works",
+      "minSeconds": 13,
+      "narration": "And it checks out. Plus five plus minus five is one zero zero zero zero. The extra bit falls off, and we are left with zero.",
+      "captions": [
+        "0101 + 1011 = 1 0000",
+        "The carry out of the sign bit is discarded",
+        "Every number plus its complement is zero"
+      ]
+    },
+    {
+      "id": "range",
+      "chapter": "06",
+      "kicker": "The range of four bits",
+      "minSeconds": 13,
+      "narration": "That is why four bits reach from minus eight up to plus seven. One more negative value than positive, because zero needs a home.",
+      "captions": [
+        "Four bits hold sixteen values: −8 to +7",
+        "Zero counts once — so negatives get one extra"
+      ]
+    },
+    {
+      "id": "recap",
+      "chapter": "07",
+      "kicker": "Recap",
+      "minSeconds": 9,
+      "narration": "Flip the bits, then add one. That is two's complement.",
+      "captions": [
+        "Flip. Add one. Done.",
+        "That's two's complement."
+      ]
+    }
+  ]
+}

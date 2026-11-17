@@ -1,0 +1,21 @@
+{
+  "master": "audio/master.wav",
+  "duration": 90.2,
+  "score": {
+    "bpm": 80.0,
+    "chords": [
+      "Am9",
+      "Fmaj7",
+      "Cmaj7",
+      "G6"
+    ],
+    "bedDb": -13.0
+  },
+  "narrationPlaced": [
+    {
+      "scene": "open",
+      "start": 0.45,
+      "duration": 5.4
+    }
+  ]
+}

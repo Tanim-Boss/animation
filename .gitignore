@@ -1,18 +1,13 @@
 node_modules/
 .venv/
+.browser.json
 __pycache__/
 *.py[cod]
 
-# Prepared runtime files (rebuilt from data + the bundled local fonts)
-src/fonts.css
-src/data/
-
-# Intermediate render/audio products; the final MP4 is intentionally retained
-out/audio_master.wav
-out/video_silent.mp4
+# Render intermediates; the final MP4 is intentionally kept
+out/*
+!out/Two-Complement-1080p.mp4
 out/stills/
-out/frames/
-out/*.log
 
-# Optional local caches
-.cache/
+# Rebuilt from the narration clips by scripts/build_audio.py
+public/audio/master.wav

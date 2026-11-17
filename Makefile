@@ -1,33 +1,25 @@
-PYTHON ?= $(shell if [ -x .venv/bin/python ]; then echo .venv/bin/python; else command -v python3; fi)
 NODE ?= node
+PYTHON ?= $(shell if [ -x .venv/bin/python ]; then echo .venv/bin/python; else command -v python3; fi)
 
-.PHONY: all timeline prepare audio render mux stills test clean preview
+.PHONY: all setup audio stills render typecheck clean
 
-all: mux
+all: render
 
-timeline:
-	$(PYTHON) scripts/build_timeline.py
+setup:
+	$(NODE) scripts/prepare-browser.mjs
+	$(NODE) scripts/make-grain.mjs
 
-prepare: timeline
-	$(NODE) scripts/prepare.mjs
-
-audio: timeline
+audio:
 	$(PYTHON) scripts/build_audio.py
 
-render: prepare
-	$(NODE) render.mjs --out out/video_silent.mp4
+stills: setup
+	$(NODE) scripts/stills.mjs --times=3,12,25,37,49,62,75,85
 
-mux: render audio
-	$(NODE) scripts/mux.mjs
+typecheck:
+	$(NODE) node_modules/typescript/bin/tsc --noEmit
 
-stills: prepare
-	$(NODE) render.mjs --stills 4,14,29,40,53,67,77,87,96,101
-
-test: prepare audio
-	$(NODE) scripts/validate.mjs
-
-preview:
-	$(NODE) scripts/preview.mjs
+render: setup audio
+	$(NODE) scripts/render.mjs
 
 clean:
-	rm -rf src/fonts.css src/data out/stills out/video_silent.mp4 out/audio_master.wav out/*.log
+	rm -rf out/stills out/test*.mp4 public/audio/master.wav src/film/*.js
